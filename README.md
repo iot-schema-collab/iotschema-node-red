@@ -41,8 +41,10 @@ cd iotschema-node-red/lib/examples/
 to your clipboard
 
 3. Open Node-RED in Browser and import the flow: 
+```
 Open <http://localhost:1880>
 Menu > Import > Clipboard
+```
 
 4. Deploy the flow, and see the result in system console.
 
