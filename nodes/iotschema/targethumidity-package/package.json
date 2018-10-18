@@ -1,0 +1,11 @@
+{
+    "name": "targethumidity-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "targethumidity.js",
+    "node-red" : {
+        "nodes": {
+        "targethumidity": "targethumidity.js"
+        }
+    }
+}

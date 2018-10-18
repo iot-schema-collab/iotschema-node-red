@@ -1,0 +1,11 @@
+{
+  "name": "Encoder",
+  "version": "1.0.0",
+  "description": "undefined",
+  "main": "Encoder.js",
+  "node-red" : {
+    "nodes": {
+      "Encoder": "Encoder.js"
+    }
+  }
+}

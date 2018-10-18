@@ -1,0 +1,11 @@
+{
+    "name": "ramptime-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "ramptime.js",
+    "node-red" : {
+        "nodes": {
+        "ramptime": "ramptime.js"
+        }
+    }
+}

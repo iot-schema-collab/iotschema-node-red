@@ -1,0 +1,11 @@
+{
+    "name": "windstrength-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "windstrength.js",
+    "node-red" : {
+        "nodes": {
+        "windstrength": "windstrength.js"
+        }
+    }
+}

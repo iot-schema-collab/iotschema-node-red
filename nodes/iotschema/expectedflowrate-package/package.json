@@ -1,0 +1,11 @@
+{
+    "name": "expectedflowrate-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "expectedflowrate.js",
+    "node-red" : {
+        "nodes": {
+        "expectedflowrate": "expectedflowrate.js"
+        }
+    }
+}

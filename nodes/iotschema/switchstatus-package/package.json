@@ -1,0 +1,11 @@
+{
+    "name": "switchstatus-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "switchstatus.js",
+    "node-red" : {
+        "nodes": {
+        "switchstatus": "switchstatus.js"
+        }
+    }
+}

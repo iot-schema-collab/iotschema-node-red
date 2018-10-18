@@ -1,0 +1,11 @@
+{
+    "name": "setcolour-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "setcolour.js",
+    "node-red" : {
+        "nodes": {
+        "setcolour": "setcolour.js"
+        }
+    }
+}

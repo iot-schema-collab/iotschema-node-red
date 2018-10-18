@@ -1,0 +1,11 @@
+{
+    "name": "expecteddensity-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "expecteddensity.js",
+    "node-red" : {
+        "nodes": {
+        "expecteddensity": "expecteddensity.js"
+        }
+    }
+}

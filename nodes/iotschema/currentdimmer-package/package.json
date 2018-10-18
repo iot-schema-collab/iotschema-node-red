@@ -1,0 +1,11 @@
+{
+    "name": "currentdimmer-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "currentdimmer.js",
+    "node-red" : {
+        "nodes": {
+        "currentdimmer": "currentdimmer.js"
+        }
+    }
+}

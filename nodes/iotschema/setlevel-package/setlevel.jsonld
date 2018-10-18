@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub218bL34C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Centimetre"
+          },
+          {
+            "@id": "iot:Millimetre"
+          },
+          {
+            "@id": "iot:Percent"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub218bL34C1",
+      "sh:property": {
+        "@id": "_:ub218bL34C15"
+      }
+    },
+    {
+      "@id": "_:ub218bL24C1",
+      "sh:property": {
+        "@id": "_:ub218bL24C16"
+      }
+    },
+    {
+      "@id": "_:ub218bL19C1",
+      "sh:property": {
+        "@id": "_:ub218bL19C15"
+      }
+    },
+    {
+      "@id": "iotsh:LevelDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub218bL19C1"
+          },
+          {
+            "@id": "_:ub218bL24C1"
+          },
+          {
+            "@id": "_:ub218bL29C1"
+          },
+          {
+            "@id": "_:ub218bL34C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:LevelData"
+      }
+    },
+    {
+      "@id": "_:ub218bL48C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:LevelData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "iotsh:TimeDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub218bL5C1"
+          },
+          {
+            "@id": "_:ub218bL10C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:TimeData"
+      }
+    },
+    {
+      "@id": "_:ub218bL43C1",
+      "sh:property": {
+        "@id": "_:ub218bL43C14"
+      }
+    },
+    {
+      "@id": "_:ub218bL48C1",
+      "sh:property": {
+        "@id": "_:ub218bL48C14"
+      }
+    },
+    {
+      "@id": "_:ub218bL24C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub218bL10C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Hour"
+          },
+          {
+            "@id": "iot:Minute"
+          },
+          {
+            "@id": "iot:Second"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub218bL5C1",
+      "sh:property": {
+        "@id": "_:ub218bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub218bL29C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub218bL19C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub218bL29C1",
+      "sh:property": {
+        "@id": "_:ub218bL29C16"
+      }
+    },
+    {
+      "@id": "_:ub218bL43C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:TimeData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "iotsh:SetLevelShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub218bL43C1"
+          },
+          {
+            "@id": "_:ub218bL48C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:SetLevel"
+      }
+    },
+    {
+      "@id": "_:ub218bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub218bL10C1",
+      "sh:property": {
+        "@id": "_:ub218bL10C15"
+      }
+    }
+  ]
+}

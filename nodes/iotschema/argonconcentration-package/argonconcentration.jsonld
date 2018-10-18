@@ -1,0 +1,160 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub170bL5C1",
+      "sh:property": {
+        "@id": "_:ub170bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub170bL5C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:ArgonConcentrationData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub170bL16C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub170bL10C1",
+      "sh:property": {
+        "@id": "_:ub170bL10C14"
+      }
+    },
+    {
+      "@id": "_:ub170bL28C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub170bL28C1",
+      "sh:property": {
+        "@id": "_:ub170bL28C15"
+      }
+    },
+    {
+      "@id": "_:ub170bL19C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub170bL33C1",
+      "sh:property": {
+        "@id": "_:ub170bL33C15"
+      }
+    },
+    {
+      "@id": "iotsh:ArgonConcentrationShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub170bL5C1"
+          },
+          {
+            "@id": "_:ub170bL10C1"
+          },
+          {
+            "@id": "_:ub170bL15C1"
+          },
+          {
+            "@id": "_:ub170bL19C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ArgonConcentration"
+      }
+    },
+    {
+      "@id": "_:ub170bL15C1",
+      "sh:not": {
+        "@id": "_:ub170bL15C10"
+      }
+    },
+    {
+      "@id": "_:ub170bL10C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub170bL15C10",
+      "sh:property": {
+        "@id": "_:ub170bL16C13"
+      }
+    },
+    {
+      "@id": "_:ub170bL33C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:PartsPerMillion"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub170bL19C1",
+      "sh:property": {
+        "@id": "_:ub170bL19C14"
+      }
+    },
+    {
+      "@id": "iotsh:ArgonConcentrationDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub170bL28C1"
+          },
+          {
+            "@id": "_:ub170bL33C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ArgonConcentrationData"
+      }
+    }
+  ]
+}

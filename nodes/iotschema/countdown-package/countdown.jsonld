@@ -1,0 +1,164 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub176bL29C1",
+      "sh:property": {
+        "@id": "_:ub176bL29C14"
+      }
+    },
+    {
+      "@id": "_:ub176bL19C1",
+      "sh:property": {
+        "@id": "_:ub176bL19C15"
+      }
+    },
+    {
+      "@id": "_:ub176bL24C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:TimeData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub176bL10C1",
+      "sh:property": {
+        "@id": "_:ub176bL10C15"
+      }
+    },
+    {
+      "@id": "_:ub176bL24C1",
+      "sh:property": {
+        "@id": "_:ub176bL24C14"
+      }
+    },
+    {
+      "@id": "_:ub176bL34C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "iotsh:TimeDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub176bL5C1"
+          },
+          {
+            "@id": "_:ub176bL10C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:TimeData"
+      }
+    },
+    {
+      "@id": "_:ub176bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub176bL34C1",
+      "sh:property": {
+        "@id": "_:ub176bL34C14"
+      }
+    },
+    {
+      "@id": "iotsh:CountDownShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub176bL19C1"
+          },
+          {
+            "@id": "_:ub176bL24C1"
+          },
+          {
+            "@id": "_:ub176bL29C1"
+          },
+          {
+            "@id": "_:ub176bL34C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:CountDown"
+      }
+    },
+    {
+      "@id": "_:ub176bL5C1",
+      "sh:property": {
+        "@id": "_:ub176bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub176bL10C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Hour"
+          },
+          {
+            "@id": "iot:Minute"
+          },
+          {
+            "@id": "iot:Second"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub176bL29C14",
+      "sh:hasValue": true,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub176bL19C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:TimeData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    }
+  ]
+}

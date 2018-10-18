@@ -1,0 +1,11 @@
+{
+    "name": "setdimmer-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "setdimmer.js",
+    "node-red" : {
+        "nodes": {
+        "setdimmer": "setdimmer.js"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "expectedfloatimmersiondepth-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "expectedfloatimmersiondepth.js",
+    "node-red" : {
+        "nodes": {
+        "expectedfloatimmersiondepth": "expectedfloatimmersiondepth.js"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "expectedupstreampressure-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "expectedupstreampressure.js",
+    "node-red" : {
+        "nodes": {
+        "expectedupstreampressure": "expectedupstreampressure.js"
+        }
+    }
+}

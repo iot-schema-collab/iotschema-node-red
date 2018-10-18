@@ -1,0 +1,11 @@
+{
+    "name": "argonconcentration-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "argonconcentration.js",
+    "node-red" : {
+        "nodes": {
+        "argonconcentration": "argonconcentration.js"
+        }
+    }
+}

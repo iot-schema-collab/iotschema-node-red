@@ -1,0 +1,11 @@
+{
+    "name": "PumpStatus",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "PumpStatus.js",
+    "node-red" : {
+        "nodes": {
+            "PumpStatus": "PumpStatus.js"
+        }
+    }
+}

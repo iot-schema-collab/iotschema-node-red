@@ -1,0 +1,11 @@
+{
+    "name": "countdown-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "countdown.js",
+    "node-red" : {
+        "nodes": {
+        "countdown": "countdown.js"
+        }
+    }
+}

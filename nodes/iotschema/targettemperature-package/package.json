@@ -1,0 +1,11 @@
+{
+    "name": "targettemperature-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "targettemperature.js",
+    "node-red" : {
+        "nodes": {
+        "targettemperature": "targettemperature.js"
+        }
+    }
+}

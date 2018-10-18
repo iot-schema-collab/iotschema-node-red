@@ -1,0 +1,11 @@
+{
+    "name": "nitrogenconcentration-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "nitrogenconcentration.js",
+    "node-red" : {
+        "nodes": {
+        "nitrogenconcentration": "nitrogenconcentration.js"
+        }
+    }
+}

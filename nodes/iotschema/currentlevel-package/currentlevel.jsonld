@@ -1,0 +1,206 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub182bL34C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub182bL5C1",
+      "sh:property": {
+        "@id": "_:ub182bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub182bL20C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Centimetre"
+          },
+          {
+            "@id": "iot:Millimetre"
+          },
+          {
+            "@id": "iot:Percent"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub182bL43C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub182bL15C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "iotsh:LevelDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub182bL5C1"
+          },
+          {
+            "@id": "_:ub182bL10C1"
+          },
+          {
+            "@id": "_:ub182bL15C1"
+          },
+          {
+            "@id": "_:ub182bL20C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:LevelData"
+      }
+    },
+    {
+      "@id": "_:ub182bL43C1",
+      "sh:property": {
+        "@id": "_:ub182bL43C14"
+      }
+    },
+    {
+      "@id": "_:ub182bL40C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub182bL39C10",
+      "sh:property": {
+        "@id": "_:ub182bL40C13"
+      }
+    },
+    {
+      "@id": "_:ub182bL10C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "iotsh:CurrentLevelShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub182bL29C1"
+          },
+          {
+            "@id": "_:ub182bL34C1"
+          },
+          {
+            "@id": "_:ub182bL39C1"
+          },
+          {
+            "@id": "_:ub182bL43C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:CurrentLevel"
+      }
+    },
+    {
+      "@id": "_:ub182bL29C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:LevelData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub182bL20C1",
+      "sh:property": {
+        "@id": "_:ub182bL20C15"
+      }
+    },
+    {
+      "@id": "_:ub182bL29C1",
+      "sh:property": {
+        "@id": "_:ub182bL29C15"
+      }
+    },
+    {
+      "@id": "_:ub182bL39C1",
+      "sh:not": {
+        "@id": "_:ub182bL39C10"
+      }
+    },
+    {
+      "@id": "_:ub182bL15C1",
+      "sh:property": {
+        "@id": "_:ub182bL15C16"
+      }
+    },
+    {
+      "@id": "_:ub182bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub182bL34C1",
+      "sh:property": {
+        "@id": "_:ub182bL34C14"
+      }
+    },
+    {
+      "@id": "_:ub182bL10C1",
+      "sh:property": {
+        "@id": "_:ub182bL10C16"
+      }
+    }
+  ]
+}

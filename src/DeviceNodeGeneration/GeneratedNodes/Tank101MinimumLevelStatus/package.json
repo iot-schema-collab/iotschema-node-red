@@ -1,0 +1,11 @@
+{
+    "name": "Tank101MinimumLevelStatus",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "Tank101MinimumLevelStatus.js",
+    "node-red" : {
+        "nodes": {
+            "Tank101MinimumLevelStatus": "Tank101MinimumLevelStatus.js"
+        }
+    }
+}

@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub196bL10C1",
+      "sh:property": {
+        "@id": "_:ub196bL10C14"
+      }
+    },
+    {
+      "@id": "_:ub196bL38C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub196bL28C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub196bL28C1",
+      "sh:property": {
+        "@id": "_:ub196bL28C15"
+      }
+    },
+    {
+      "@id": "_:ub196bL19C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub196bL5C1",
+      "sh:property": {
+        "@id": "_:ub196bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub196bL33C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub196bL33C1",
+      "sh:property": {
+        "@id": "_:ub196bL33C16"
+      }
+    },
+    {
+      "@id": "_:ub196bL16C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub196bL15C1",
+      "sh:not": {
+        "@id": "_:ub196bL15C10"
+      }
+    },
+    {
+      "@id": "iotsh:IlluminanceDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub196bL28C1"
+          },
+          {
+            "@id": "_:ub196bL33C1"
+          },
+          {
+            "@id": "_:ub196bL38C1"
+          },
+          {
+            "@id": "_:ub196bL43C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:IlluminanceData"
+      }
+    },
+    {
+      "@id": "_:ub196bL10C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub196bL43C1",
+      "sh:property": {
+        "@id": "_:ub196bL43C15"
+      }
+    },
+    {
+      "@id": "_:ub196bL5C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:IlluminanceData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub196bL15C10",
+      "sh:property": {
+        "@id": "_:ub196bL16C13"
+      }
+    },
+    {
+      "@id": "_:ub196bL38C1",
+      "sh:property": {
+        "@id": "_:ub196bL38C16"
+      }
+    },
+    {
+      "@id": "_:ub196bL43C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Lux"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub196bL19C1",
+      "sh:property": {
+        "@id": "_:ub196bL19C14"
+      }
+    },
+    {
+      "@id": "iotsh:IlluminanceShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub196bL5C1"
+          },
+          {
+            "@id": "_:ub196bL10C1"
+          },
+          {
+            "@id": "_:ub196bL15C1"
+          },
+          {
+            "@id": "_:ub196bL19C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:Illuminance"
+      }
+    }
+  ]
+}

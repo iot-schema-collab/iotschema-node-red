@@ -1,0 +1,203 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "iotsh:PressureDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub190bL28C1"
+          },
+          {
+            "@id": "_:ub190bL33C1"
+          },
+          {
+            "@id": "_:ub190bL38C1"
+          },
+          {
+            "@id": "_:ub190bL43C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:PressureData"
+      }
+    },
+    {
+      "@id": "_:ub190bL33C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub190bL15C10",
+      "sh:property": {
+        "@id": "_:ub190bL16C13"
+      }
+    },
+    {
+      "@id": "_:ub190bL10C1",
+      "sh:property": {
+        "@id": "_:ub190bL10C14"
+      }
+    },
+    {
+      "@id": "_:ub190bL33C1",
+      "sh:property": {
+        "@id": "_:ub190bL33C16"
+      }
+    },
+    {
+      "@id": "_:ub190bL5C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:PressureData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub190bL43C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:Pascal"
+          },
+          {
+            "@id": "iot:Bar"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub190bL16C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub190bL38C1",
+      "sh:property": {
+        "@id": "_:ub190bL38C16"
+      }
+    },
+    {
+      "@id": "_:ub190bL28C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "iotsh:ExpectedPressureShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub190bL5C1"
+          },
+          {
+            "@id": "_:ub190bL10C1"
+          },
+          {
+            "@id": "_:ub190bL15C1"
+          },
+          {
+            "@id": "_:ub190bL19C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ExpectedPressure"
+      }
+    },
+    {
+      "@id": "_:ub190bL38C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub190bL19C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub190bL10C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub190bL19C1",
+      "sh:property": {
+        "@id": "_:ub190bL19C14"
+      }
+    },
+    {
+      "@id": "_:ub190bL15C1",
+      "sh:not": {
+        "@id": "_:ub190bL15C10"
+      }
+    },
+    {
+      "@id": "_:ub190bL43C1",
+      "sh:property": {
+        "@id": "_:ub190bL43C15"
+      }
+    },
+    {
+      "@id": "_:ub190bL28C1",
+      "sh:property": {
+        "@id": "_:ub190bL28C15"
+      }
+    },
+    {
+      "@id": "_:ub190bL5C1",
+      "sh:property": {
+        "@id": "_:ub190bL5C15"
+      }
+    }
+  ]
+}

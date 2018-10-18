@@ -1,0 +1,11 @@
+{
+    "name": "OpenValve",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "OpenValve.js",
+    "node-red" : {
+        "nodes": {
+            "OpenValve": "OpenValve.js"
+        }
+    }
+}

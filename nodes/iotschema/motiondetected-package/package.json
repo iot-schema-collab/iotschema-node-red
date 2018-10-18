@@ -1,0 +1,11 @@
+{
+    "name": "motiondetected-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "motiondetected.js",
+    "node-red" : {
+        "nodes": {
+        "motiondetected": "motiondetected.js"
+        }
+    }
+}

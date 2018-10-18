@@ -1,0 +1,11 @@
+{
+    "name": "motiontype-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "motiontype.js",
+    "node-red" : {
+        "nodes": {
+        "motiontype": "motiontype.js"
+        }
+    }
+}

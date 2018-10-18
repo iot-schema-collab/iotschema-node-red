@@ -1,0 +1,45 @@
+<script type="text/javascript">
+
+    function displayRequestDataElement() {
+
+        method = document.getElementById("node-input-method").value;
+        if (method !== "POST") {
+            request_data_div.style.display = 'inline';
+        }
+        else {
+            request_data_div.style.display = 'none';
+        }
+    }
+</script>
+
+<script type="text/x-red" data-template-name="Encoder">
+    <div class="form-row">
+	 <label for="node-input-outputType"  style="width:30%"><i class="icon-tag"></i> Ouput type:</label>
+         <select type="text" id="node-input-outputType" style="width:40%;">
+            <option value="json">JSON</option>
+        </select>
+    </div>
+   
+    <div class="form-row" id="name_div">
+	     <label for="node-input-name" style="width:30%"><i class="icon-tag"></i> Name:</label>
+         <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('Encoder', {
+        category: 'adaptors',
+        color: '#f0a57e',
+        defaults: {
+            name: {value: ""},
+           
+            outputType: {value: "JSON"}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "white-globe.png",
+        label: function () {
+            return this.name || "Encoder";
+        }
+    });
+</script>
