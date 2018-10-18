@@ -1,0 +1,11 @@
+{
+  "name": "DataTypeConvertor",
+  "version": "1.0.0",
+  "description": "undefined",
+  "main": "DataTypeConvertor.js",
+  "node-red" : {
+    "nodes": {
+      "DataTypeConvertor": "DataTypeConvertor.js"
+    }
+  }
+}

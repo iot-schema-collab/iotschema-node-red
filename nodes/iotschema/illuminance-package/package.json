@@ -1,0 +1,11 @@
+{
+    "name": "illuminance-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "illuminance.js",
+    "node-red" : {
+        "nodes": {
+        "illuminance": "illuminance.js"
+        }
+    }
+}

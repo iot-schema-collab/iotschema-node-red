@@ -1,0 +1,11 @@
+{
+    "name": "runmode-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "runmode.js",
+    "node-red" : {
+        "nodes": {
+        "runmode": "runmode.js"
+        }
+    }
+}

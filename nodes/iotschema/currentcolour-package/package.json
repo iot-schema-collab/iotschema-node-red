@@ -1,0 +1,11 @@
+{
+    "name": "currentcolour-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "currentcolour.js",
+    "node-red" : {
+        "nodes": {
+        "currentcolour": "currentcolour.js"
+        }
+    }
+}

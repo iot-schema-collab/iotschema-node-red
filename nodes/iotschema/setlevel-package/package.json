@@ -1,0 +1,11 @@
+{
+    "name": "setlevel-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "setlevel.js",
+    "node-red" : {
+        "nodes": {
+        "setlevel": "setlevel.js"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "currentlevel-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "currentlevel.js",
+    "node-red" : {
+        "nodes": {
+        "currentlevel": "currentlevel.js"
+        }
+    }
+}

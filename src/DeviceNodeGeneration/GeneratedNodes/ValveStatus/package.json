@@ -1,0 +1,11 @@
+{
+    "name": "ValveStatus",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "ValveStatus.js",
+    "node-red" : {
+        "nodes": {
+            "ValveStatus": "ValveStatus.js"
+        }
+    }
+}

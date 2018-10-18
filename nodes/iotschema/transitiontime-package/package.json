@@ -1,0 +1,11 @@
+{
+    "name": "transitiontime-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "transitiontime.js",
+    "node-red" : {
+        "nodes": {
+        "transitiontime": "transitiontime.js"
+        }
+    }
+}

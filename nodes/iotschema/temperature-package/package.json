@@ -1,0 +1,11 @@
+{
+    "name": "temperature-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "temperature.js",
+    "node-red" : {
+        "nodes": {
+        "temperature": "temperature.js"
+        }
+    }
+}

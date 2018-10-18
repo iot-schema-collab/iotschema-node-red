@@ -1,0 +1,11 @@
+{
+  "name": "TemperatureUnitConvertor",
+  "version": "1.0.0",
+  "description": "undefined",
+  "main": "TemperatureUnitConvertor.js",
+  "node-red" : {
+    "nodes": {
+      "TemperatureUnitConvertor": "TemperatureUnitConvertor.js"
+    }
+  }
+}

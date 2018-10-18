@@ -1,0 +1,11 @@
+{
+    "name": "turnoff-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "turnoff.js",
+    "node-red" : {
+        "nodes": {
+        "turnoff": "turnoff.js"
+        }
+    }
+}

@@ -1,0 +1,176 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub180bL29C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub180bL35C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub180bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub180bL10C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub180bL10C1",
+      "sh:property": {
+        "@id": "_:ub180bL10C16"
+      }
+    },
+    {
+      "@id": "iotsh:CurrentDimmerShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub180bL24C1"
+          },
+          {
+            "@id": "_:ub180bL29C1"
+          },
+          {
+            "@id": "_:ub180bL34C1"
+          },
+          {
+            "@id": "_:ub180bL38C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:CurrentDimmer"
+      }
+    },
+    {
+      "@id": "_:ub180bL24C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:DimmerData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "iotsh:DimmerDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub180bL5C1"
+          },
+          {
+            "@id": "_:ub180bL10C1"
+          },
+          {
+            "@id": "_:ub180bL15C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:DimmerData"
+      }
+    },
+    {
+      "@id": "_:ub180bL38C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub180bL34C10",
+      "sh:property": {
+        "@id": "_:ub180bL35C13"
+      }
+    },
+    {
+      "@id": "_:ub180bL29C1",
+      "sh:property": {
+        "@id": "_:ub180bL29C14"
+      }
+    },
+    {
+      "@id": "_:ub180bL38C1",
+      "sh:property": {
+        "@id": "_:ub180bL38C14"
+      }
+    },
+    {
+      "@id": "_:ub180bL24C1",
+      "sh:property": {
+        "@id": "_:ub180bL24C15"
+      }
+    },
+    {
+      "@id": "_:ub180bL5C1",
+      "sh:property": {
+        "@id": "_:ub180bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub180bL15C1",
+      "sh:property": {
+        "@id": "_:ub180bL15C16"
+      }
+    },
+    {
+      "@id": "_:ub180bL15C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub180bL34C1",
+      "sh:not": {
+        "@id": "_:ub180bL34C10"
+      }
+    }
+  ]
+}

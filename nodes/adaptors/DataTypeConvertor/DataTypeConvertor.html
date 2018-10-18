@@ -1,0 +1,52 @@
+<script type="text/javascript">
+
+    function displayRequestDataElement() {
+
+        method = document.getElementById("node-input-method").value;
+        if (method !== "POST") {
+            request_data_div.style.display = 'inline';
+        }
+        else {
+            request_data_div.style.display = 'none';
+        }
+    }
+</script>
+
+<script type="text/x-red" data-template-name="DataTypeConvertor">
+    <div class="form-row">
+	 <label for="node-input-inputType"  style="width:30%"><i class="icon-tag"></i> Input type:</label>
+         <select type="text" id="node-input-inputType" style="width:40%;">
+            <option value="int">Integer</option>
+            <option value="float">Float</option>
+        </select>
+    </div>
+    <div class="form-row">
+	 <label for="node-input-outputType"  style="width:30%"><i class="icon-tag"></i> Output type:</label>
+         <select type="text" id="node-input-outputType" style="width:40%;">
+            <option value="float">Float</option>
+	    <option value="int">Integer</option>
+        </select>
+    </div>
+    <div class="form-row" id="name_div">
+	     <label for="node-input-name" style="width:30%"><i class="icon-tag"></i> Name:</label>
+         <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('DataTypeConvertor', {
+        category: 'adaptors',
+        color: '#f0a57e',
+        defaults: {
+            name: {value: ""},
+            inputType: {value: "Integer"},
+            outputType: {value: "Float"}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "white-globe.png",
+        label: function () {
+            return this.name || "DataTypeConvertor";
+        }
+    });
+</script>

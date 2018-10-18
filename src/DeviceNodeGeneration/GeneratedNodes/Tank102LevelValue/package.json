@@ -1,0 +1,11 @@
+{
+    "name": "Tank102LevelValue",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "Tank102LevelValue.js",
+    "node-red" : {
+        "nodes": {
+            "Tank102LevelValue": "Tank102LevelValue.js"
+        }
+    }
+}

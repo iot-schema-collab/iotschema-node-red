@@ -1,0 +1,11 @@
+{
+    "name": "soundpressurelevel-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "soundpressurelevel.js",
+    "node-red" : {
+        "nodes": {
+        "soundpressurelevel": "soundpressurelevel.js"
+        }
+    }
+}

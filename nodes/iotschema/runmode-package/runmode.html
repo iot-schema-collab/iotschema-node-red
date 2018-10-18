@@ -1,0 +1,129 @@
+<script type="text/javascript">
+    RED.nodes.registerType('runmode',{
+        category: 'iotschemaorg',
+        color: '#00A4B4',
+        defaults: {
+        
+            CoolMode:{value:false},DryMode:{value:false},EnergyOrPowerSaverMode:{value:false},FanMode:{value:false},SleepMode:{value:false},
+            propertyValues: {value:""},
+        
+            CoolMode:{value:false},DryMode:{value:false},EnergyOrPowerSaverMode:{value:false},FanMode:{value:false},SleepMode:{value:false},
+            propertyValues: {value:""},
+        
+        observable: {value:""},
+    name: {value:""},
+    iptype: {value:"iot:RunMode"},
+    capability: {value:""},
+    foitype: {value:""},
+    foi: {value:""},
+    operation:{value:""}
+    },
+    inputs:1,
+    outputs:2,
+    icon: "file.png",
+            label: function() {
+        return this.name||"runmode";
+    }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="runmode">
+	 <div class="form-row">
+	     <label for="node-input-name" style="width:40%"><i class="icon-tag"></i> Name:</label>
+         <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-iptype"  style="width:40%"><i class="icon-tag"></i> Interaction Pattern Type:</label>
+         <input type="text" id="node-input-iptype" style="width:50%" readonly/>
+     </div>
+      <div class="form-row">
+	     <label for="node-input-capability"  style="width:40%"><i class="icon-tag"></i> Capability:</label>
+         <input type="text" id="node-input-capability" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foitype"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest Type:</label>
+         <input type="text" id="node-input-foitype" style="width:50%" placeholder=""/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foi"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest:</label>
+         <input type="text" id="node-input-foi" style="width:50%" placeholder=""/>
+     </div>
+
+     
+    <div class="form-row">
+		 <label for="node-input-propertyValues"  style="width:40%"><i class="icon-tag"></i> PropertyValues:</label>
+          <div class="form-row">
+          <input type="checkbox" id="node-input-CoolMode" style="display: inline-block; width: 5%; vertical-align: top; padding-left: 50px;"/>
+          <label for="node-input-CoolMode"  style="width: auto">CoolMode</label>
+          </div>
+          <div class="form-row">
+          <input type="checkbox" id="node-input-DryMode" style="display: inline-block; width: 5%; vertical-align: top; padding-left: 50px;"/>
+          <label for="node-input-DryMode"  style="width: auto">DryMode</label>
+          </div>
+          <div class="form-row">
+          <input type="checkbox" id="node-input-EnergyOrPowerSaverMode" style="display: inline-block; width: 5%; vertical-align: top; padding-left: 50px;"/>
+          <label for="node-input-EnergyOrPowerSaverMode"  style="width: auto">EnergyOrPowerSaverMode</label>
+          </div>
+          <div class="form-row">
+          <input type="checkbox" id="node-input-FanMode" style="display: inline-block; width: 5%; vertical-align: top; padding-left: 50px;"/>
+          <label for="node-input-FanMode"  style="width: auto">FanMode</label>
+          </div>
+          <div class="form-row">
+          <input type="checkbox" id="node-input-SleepMode" style="display: inline-block; width: 5%; vertical-align: top; padding-left: 50px;"/>
+          <label for="node-input-SleepMode"  style="width: auto">SleepMode</label>
+          </div>
+          <br/>
+    </div>
+
+     <div class="form-row">
+         <label for="node-input-observable"  style="width:40%"><i class="icon-tag"></i> Observable:</label>
+         <select id="node-input-observable" style="width:30%">
+            <option value="true">True</option>
+            <option value="false">False</option>
+         </select>
+     </div>
+     <hr/>
+     <b>Optional</b><br/>
+     <div class="form-row">
+	     <label for="node-input-operation"  style="width:40%"><i class="icon-tag"></i> Operation:</label>
+         <select id="node-input-operation" style="width:30%">
+            <option value="create">Create</option>
+            <option value="retrieve">Retrieve</option>
+	        <option value="update">Update</option>
+            <option value="delete">Delete</option>
+            <option value="observe">Observe</option>
+         </select>
+     </div>
+</script>
+
+<script type="text/x-red" data-help-name="runmode">
+	<p>RunMode
+	    is a
+            Property.
+                It accepts input
+                    which
+                    is
+                    <code>RunModeData</code> .
+
+                It provides output
+                    which
+                    is
+                    <code>RunModeData</code> .</p>
+
+                <p><br/>
+                    
+                    <code>RunModeData</code> can be configured with
+                        <code>propertyValues</code>
+                      <br/><br/>
+                     <h4><b>Configurations</b></h4>
+                        <dl class="message-properties">
+                        <dt>PropertyValues <span class="property-type">
+                            
+
+                             <ul><li>CoolMode</li><li>DryMode</li><li>EnergyOrPowerSaverMode</li><li>FanMode</li><li>SleepMode</li></ul>
+                        </span></dt>
+                        </dl>
+                    </dl>
+                    
+                    
+</script>

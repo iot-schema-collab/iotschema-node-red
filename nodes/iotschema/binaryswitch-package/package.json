@@ -1,0 +1,11 @@
+{
+    "name": "binaryswitch-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "binaryswitch.js",
+    "node-red" : {
+        "nodes": {
+        "binaryswitch": "binaryswitch.js"
+        }
+    }
+}

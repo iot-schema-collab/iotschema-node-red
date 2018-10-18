@@ -1,0 +1,11 @@
+{
+    "name": "TemperatureDevice",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "TemperatureDevice.js",
+    "node-red" : {
+        "nodes": {
+            "ValveStatus": "TemperatureDevice.js"
+        }
+    }
+}

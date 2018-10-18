@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Thermostat', {
+        category: 'devicenodes',
+        color: '#66FA00',
+        defaults: {
+        
+            method:{value:""},
+            name: {value: ""},
+            method:{value:""},
+            value:{value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "Thermostat";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    function displayValue() {
+        method = document.getElementById("node-input-method").value;
+        if (method === "GET") {
+            request_interval_div.style.display = 'inline';
+        }
+        else {
+            request_interval_div.style.display = 'none';
+        }
+    }
+</script>
+
+<script type="text/x-red" data-template-name="Thermostat">
+	 <div class="form-row">
+	     <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+         <input type="text" id="node-input-name" placeholder="Name"/><br/>
+         <label for="node-input-method"><i class="icon-tag"></i> Method</label>
+         <select id="node-input-method" onchange="displayValue()">
+             <option value="PUT">PUT</option>
+             <option value="POST">POST</option>
+         </select><br/>
+         <div id="post_body_div" style="display:none">
+         	<label for="node-input-value" ><i class="icon-tag"></i> Value</label>
+         	<input type="text" id="node-input-value" placeholder="property"/>
+         </div>
+         <div id="request_interval_div" style="display:inline" style="display:none">
+         	<label for="node-input-interval" ><i class="icon-tag"></i> Interval</label>
+         	<input type="text" id="node-input-interval" placeholder="seconds"/>
+         </div>
+     </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="Thermostat">
+	<p></p>
+
+</script>

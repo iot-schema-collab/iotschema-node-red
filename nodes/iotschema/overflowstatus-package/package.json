@@ -1,0 +1,11 @@
+{
+    "name": "overflowstatus-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "overflowstatus.js",
+    "node-red" : {
+        "nodes": {
+        "overflowstatus": "overflowstatus.js"
+        }
+    }
+}

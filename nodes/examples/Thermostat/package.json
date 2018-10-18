@@ -1,0 +1,11 @@
+{
+    "name": "Thermostat",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "Thermostat.js",
+    "node-red" : {
+        "nodes": {
+            "Thermostat": "Thermostat.js"
+        }
+    }
+}

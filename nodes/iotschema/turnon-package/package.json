@@ -1,0 +1,11 @@
+{
+    "name": "turnon-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "turnon.js",
+    "node-red" : {
+        "nodes": {
+        "turnon": "turnon.js"
+        }
+    }
+}

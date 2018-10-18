@@ -1,0 +1,11 @@
+{
+    "name": "operationstatus-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "operationstatus.js",
+    "node-red" : {
+        "nodes": {
+        "operationstatus": "operationstatus.js"
+        }
+    }
+}

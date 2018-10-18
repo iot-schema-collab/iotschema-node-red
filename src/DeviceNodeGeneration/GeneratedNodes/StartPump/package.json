@@ -1,0 +1,11 @@
+{
+    "name": "StartPump",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "StartPump.js",
+    "node-red" : {
+        "nodes": {
+            "StartPump": "StartPump.js"
+        }
+    }
+}

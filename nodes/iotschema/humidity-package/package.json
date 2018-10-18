@@ -1,0 +1,11 @@
+{
+    "name": "humidity-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "humidity.js",
+    "node-red" : {
+        "nodes": {
+        "humidity": "humidity.js"
+        }
+    }
+}
