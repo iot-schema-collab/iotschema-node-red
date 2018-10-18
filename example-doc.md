@@ -2,7 +2,7 @@
 
 This example shows how to use iot.schema.org Nodes in order to make an exisitng Thing's data conform with the semantics of iot.schema.org. Further on, the iot.schema.org Nodes are used to wire an IoT application. 
 
-![iotschema-node-red: iotschema interactions implemented as Node-RED Nodes.](images/Temperature Control Recipe.png)
+![iotschema-node-red: iotschema interactions implemented as Node-RED Nodes.](https://github.com/iot-schema-collab/iotschema-node-red/blob/master/images/Temperature%20Control%20Recipe.PNG)
 
 ## Thing Nodes
 

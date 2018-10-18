@@ -1,7 +1,7 @@
 # iotschema-node-red
 iot.schema.org interactions implemented as Node-RED Nodes.
 
-![iotschema-node-red: iot.schema.org interactions implemented as Node-RED Nodes.](images/Temperature Control Recipe.png)
+![iotschema-node-red: iot.schema.org interactions implemented as Node-RED Nodes.](https://github.com/iot-schema-collab/iotschema-node-red/blob/master/images/Temperature%20Control%20Recipe.PNG)
 
 ## Quick Start
 1. Install Node-RED:
