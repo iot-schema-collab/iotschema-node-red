@@ -1,0 +1,59 @@
+[
+    {
+        "id": "a889601c.f2842",
+        "type": "tab",
+        "label": "Temperature TD",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9023c12f.14fac",
+        "type": "ThingDescriptionGenerator",
+        "z": "a889601c.f2842",
+        "name": "TD Generator",
+        "uri": "coap://localhost:5683",
+        "x": 420,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f8107bef.617398",
+        "type": "TemperatureDevice",
+        "z": "a889601c.f2842",
+        "interval": "100",
+        "method": "GET",
+        "name": "",
+        "value": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "c252d8ad.c0f508"
+            ]
+        ]
+    },
+    {
+        "id": "c252d8ad.c0f508",
+        "type": "temperature",
+        "z": "a889601c.f2842",
+        "propertyType": "",
+        "minValue": "23.6",
+        "maxValue": "50.6",
+        "unitCode": "iot:Kelvin",
+        "observable": "true",
+        "name": "TemperatureDevice",
+        "iptype": "iot:Temperature",
+        "capability": "iot:TemperatureSensor",
+        "foitype": "iot:Room",
+        "foi": "Room1",
+        "operation": "retrieve",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "9023c12f.14fac"
+            ],
+            []
+        ]
+    }
+]
