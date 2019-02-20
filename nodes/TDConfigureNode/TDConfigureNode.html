@@ -1,0 +1,113 @@
+<script type="text/javascript">
+
+    (function () {
+
+        RED.nodes.registerType('TDConfigureNode', {
+            category: 'config',
+            defaults: {
+                name: {value: ""}
+            },
+            color: "#87a980",
+            inputs: 0,
+            outputs: 0,
+            icon: "cog.png",
+            align: "right",
+
+            onpaletteadd: function () {
+                $.getScript('TDConfigureNode/js/utils.js');
+                $.getScript('TDConfigureNode/js/UIBuilder.js');
+
+                RED.sidebar.addTab({
+                    id: "TDConfigureNode",
+                    label: "Thing Directory",
+                    name: "TDConfigureNode",
+                    enableOnEdit: true,
+                    pinned: true,
+                    iconClass: "fa fa-cog",
+                    content: "<html><head>\n\
+                              </head><div id='Configurations'></div><div id='TDConfigurations'>\n\
+                              <div style='margin-top:50px;margin-left: 20px'>\n\
+                              <fieldset id='tdlocation'>\n\
+                              <input type='radio' name='action' id='remoteTD' value='remote' Onchange=displayServerOptions()> Use Remote TD Server</input><br/>\n\
+                              <input type='text' name='remoteIDLocation' id='remoteIDLocation' style='display:none'></input>\n\
+                              <button id='connect' onclick=connectToRemoteTDServer() style='display:none'>Connect</button><br/>\n\
+                              <input type='radio' name='action' id='localTD' value='local' checked='checked' Onchange=displayServerOptions()> Use Local TD Server</input><br/>\n\
+                              </fieldset>\n\
+                              <div id='serverPanel'>\n\
+                              <table><tr><td colspan='2'><label for='cp'></label></td></tr>\n\
+                              <tr><td><button id='startButton' style='margin-top: 10px;padding: 3px 30px;' \n\
+                               type='button' onClick='deploy()'>Start</button></form></td>\n\
+                              <td><button id='stopButton' style='margin-top: 10px;padding: 3px 30px;' type='button' onClick='stop()'>Stop</button></td></tr>\n\
+                              <tr><td colspan='2'></td></tr>\n\
+                              </table></div>\n\
+                              </div>\n\
+\n\                           <div style='margin-top: 20px;' id='serverStatus'></div>\n\
+                              <div id='TDOperations'>\n\
+                              <div style='margin-top:50px;margin-left: 20px'>\n\
+                              <table><tr><td colspan='2'><label for='cp'></label></td></tr>\n\
+                              <tr><td>\n\
+                              <fieldset id='tdConfiguration'>\n\
+                              <input type='radio' name='action' id='storeTD' value='store' Onchange=displayValue()> Store TD/Recipe</input><br/>\n\
+                              <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
+                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Retrieve TD</input><br/>\n\
+                              <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
+                              <input type='radio' name='action'id='retriveRec' value='retrieverec'Onchange=displayValue()> Retrieve Recipe</input><br/>\n\
+                              <input type='text' name='retRecQuery' id='retRecQuery' style='display:none'></input><br/>\n\
+                              <button id='submitBtn' onclick=onSubmit() disabled>Store/Retrieve</button> \n\
+                              </fieldset>\n\
+                              </td></tr>\n\
+                              <tr><td colspan='2'><div style='margin-top: 20px;' id='resultList'>\n\
+                              </div></td></tr>\n\
+                              <tr><td colspan='2'><div style='margin-top: 20px;' id='information'>\n\
+                              </div></td></tr>\n\
+                              </table></div>\n\
+                              </html>",
+                    onchange: function () {
+                        checkStatus();
+                    }
+                });
+
+                RED.actions.add("core:show-TDConfigure-tab", function () {
+                    RED.sidebar.show('TDConfigure');
+                });
+
+                RED.events.on("deploy", function (event) {
+
+                    let tdContent = "<div id='TDOperations'>\n\
+                              <div style='margin-top:50px;margin-left: 20px'>\n\
+                              <table><tr><td colspan='2'><label for='cp'></label></td></tr>\n\
+                              <tr><td>\n\
+                              <fieldset id='tdConfiguration'>\n\
+                              <input type='radio' name='action' id='storeTD' value='store' Onchange=displayValue()> Store TD/Recipe</input><br/>\n\
+                              <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
+                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Retrieve TD</input><br/>\n\
+                              <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
+                              <input type='radio' name='action'id='retriveRec' value='retrieverec'Onchange=displayValue()> Retrieve Recipe</input><br/>\n\
+                              <input type='text' name='retRecQuery' id='retRecQuery' style='display:none'></input><br/>\n\
+                             <!-- <input type='radio' name='action' id='retriveCap' value='retrievecap'Onchange=displayValue()> Retrieve Capability</input><br/>\n\
+                              <input type='text' name='capQuery' id='capQuery' style='display:none'></input><br/> -->\n\
+                              <div id='capabilityResultSet'></div>\n\
+                              <button id='submitBtn' onclick=onSubmit() disabled>Store/Retrieve</button> \n\
+                              </fieldset>\n\
+                              </td></tr>\n\
+                              <tr><td colspan='2'><div style='margin-top: 20px;' id='resultList'>\n\
+                              </div></td></tr>\n\
+                              <tr><td colspan='2'><div style='margin-top: 20px;' id='information'>\n\
+                              </div></td></tr>\n\
+                              </table></div>";
+                    $('#TDOperations').
+                    replaceWith(tdContent);
+            
+                    if($( "#startButton" ).prop( "disabled")){
+                        $( "#submitBtn" ).prop( "disabled", false );
+                    }
+                });
+
+                RED.events.on("workspace:change", function (event) {
+                    $('#TDOperations').
+                            replaceWith("<div id='TDOperations'></div>");
+                });
+            },
+        });
+    })();
+</script>

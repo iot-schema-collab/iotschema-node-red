@@ -1,0 +1,20 @@
+{
+    "name": "TDConfigureNode",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "TDConfigureNode.js",
+    "node-red": {
+        "nodes": {
+            "TDConfigureNode": "TDConfigureNode.js"
+        }
+    },
+    "dependencies": {
+        "request": "^2.88.0",
+        "child-process-promise": "2.2.1",
+        "node-cmd": "3.0.0",
+        "formidable": "1.2.1",
+        "fs-extra":"7.0.1",
+        "node-notifier":"5.3.0",
+        "nodejs-base64":"1.0.3"
+    }
+}

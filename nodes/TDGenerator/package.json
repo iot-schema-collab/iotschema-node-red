@@ -1,0 +1,15 @@
+{
+  "name": "node-red-contrib-example-TDGenerator",
+  "version": "1.0.0",
+  "node-red": {
+    "nodes": {
+      "ThingDescriptionGenerator": "TDGenerator.js"
+    }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "node-red-contrib-example-TDGenerator@1.0.0",
+  "scripts": {},
+  "_shasum": "b56b221fa48fd186e882c259899732ea85bb52b0",
+  "_from": "..\\..\\..\\Projects\\siemens-semantic-models\\iot.schema.org-Node-RED\\Code\\TDGenerator",
+  "_resolved": "file:..\\..\\..\\Projects\\siemens-semantic-models\\iot.schema.org-Node-RED\\Code\\TDGenerator"
+}
