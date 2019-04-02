@@ -1,0 +1,12 @@
+{
+ "name": "ProximitySensing",
+ "version": "1.0.0",
+ "description": "undefined",
+ "main": "node",
+ "node-red": {
+  "nodes": {
+   "Tank101MaximumLevelStatus": "Tank101MaximumLevelStatus.js",
+   "Tank101MinimumLevelStatus": "Tank101MinimumLevelStatus.js"
+  }
+ }
+}

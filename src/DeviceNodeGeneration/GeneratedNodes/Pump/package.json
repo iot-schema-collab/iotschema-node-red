@@ -1,0 +1,13 @@
+{
+ "name": "Pump",
+ "version": "1.0.0",
+ "description": "undefined",
+ "main": "node",
+ "node-red": {
+  "nodes": {
+   "PumpStatus": "PumpStatus.js",
+   "StartPump": "StartPump.js",
+   "StopPump": "StopPump.js"
+  }
+ }
+}

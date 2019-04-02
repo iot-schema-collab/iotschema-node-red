@@ -1,0 +1,13 @@
+{
+ "name": "Valve",
+ "version": "1.0.0",
+ "description": "undefined",
+ "main": "node",
+ "node-red": {
+  "nodes": {
+   "ValveStatus": "ValveStatus.js",
+   "OpenValve": "OpenValve.js",
+   "CloseValve": "CloseValve.js"
+  }
+ }
+}
