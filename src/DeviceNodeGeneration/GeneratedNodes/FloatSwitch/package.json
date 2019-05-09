@@ -1,0 +1,12 @@
+{
+ "name": "FloatSwitch",
+ "version": "1.0.0",
+ "description": "undefined",
+ "main": "node",
+ "node-red": {
+  "nodes": {
+   "Tank102OverflowStatus": "Tank102OverflowStatus.js",
+   "Tank101OverflowStatus": "Tank101OverflowStatus.js"
+  }
+ }
+}

@@ -72,7 +72,7 @@ let serviceCallCOAP = function(node, requestInfo, payload){
 
 module.exports = function(RED) {
 
-    function {{node_name}}(config) {
+    function {{node_name_extension}}(config) {
         RED.nodes.createNode(this, config);
         let node = this;
         node.status({});
@@ -209,5 +209,5 @@ module.exports = function(RED) {
                                         });{{/is_equal}}{{/is_equal}}
                         }
 
-                        RED.nodes.registerType("{{node_name}}", {{node_name}});
+                        RED.nodes.registerType("{{node_name_extension}}", {{node_name_extension}});
                     };

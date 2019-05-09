@@ -1,0 +1,11 @@
+{
+    "name": "UltrasonicSensing",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "node",
+    "node-red": {
+        "nodes": {
+            "Tank102LevelValue": "Tank102LevelValue.js"
+        }
+    }
+}
