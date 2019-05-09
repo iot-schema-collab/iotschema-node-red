@@ -16,7 +16,10 @@ var id;
 let ipconfig = {};
 var td = {};
 td["@type"] = [];
-td["interaction"] = [];
+//td["interaction"] = [];
+td["properties"] = {};
+td["actions"] = {};
+td["events"] ={};
 var iphrefs = {};
 let aggreagatedThingDescription;
 
@@ -42,7 +45,7 @@ module.exports = function (RED) {
                 generateInteractions(tddata);
                 tddata = {};
             } else if (json["@type"].indexOf("Thing") > -1) {
-                // console.log("TD - HERE");
+                 console.log("TD - HERE");
                 name = json["name"];
                 uri = json["base"];
                 id = json["id"];
@@ -59,18 +62,18 @@ module.exports = function (RED) {
                 }
                 if (json["actions"]) {
                     var a = json["actions"];
-                    for (var x in a) {
-                        iphrefs[x] = {};
-                        iphrefs[x]["href"] = a[x]["forms"][0]["href"];
-                        iphrefs[x]["mediaType"] = a[x]["forms"][0]["mediaType"];
+                    for (var y in a) {
+                        iphrefs[y] = {};
+                        iphrefs[y]["href"] = a[y]["forms"][0]["href"];
+                        iphrefs[y]["mediaType"] = a[y]["forms"][0]["mediaType"];
                     }
                 }
                 if (json["events"]) {
-                    var a = json["events"];
-                    for (var x in a) {
-                        iphrefs[x] = {};
-                        iphrefs[x]["href"] = a[x]["forms"][0]["href"];
-                        iphrefs[x]["mediaType"] = a[x]["forms"][0]["mediaType"];
+                    var e = json["events"];
+                    for (var z in e) {
+                        iphrefs[z] = {};
+                        iphrefs[z]["href"] = a[z]["forms"][0]["href"];
+                        iphrefs[z]["mediaType"] = a[z]["forms"][0]["mediaType"];
                     }
                 }
                 generateTDTemplate();
@@ -92,16 +95,17 @@ module.exports = function (RED) {
             //this content is exposed via admin http endpoint
             aggreagatedThingDescription = temp
             console.log(aggreagatedThingDescription.length)
-            node.send({payload: temp});
+           // node.send({payload: temp});
+		   node.send({payload: aggreagatedThingDescription});
             initialize();
         });
     }
     RED.nodes.registerType("ThingDescriptionGenerator", TDGeneratorNode);
     
-    
     //admin http endpoint to expose generated thing desciptions
     RED.httpAdmin.get('/TDGenerator/generatedContent', RED.auth.needsPermission('ThingDescriptionGenerator.read'), function (req, res) {
         res.json(aggreagatedThingDescription);
+		
     });
 }
 
@@ -110,13 +114,14 @@ function postprocessTD(td, iphrefs) {
         td["name"] = name;
         td["base"] = uri;
         td["security"] = security;
-        td["id"] = id;
-        for (var i in td["interaction"]) {
+        //td["id"] = id;
+		    td["id"] = "urn:dev:wot:" + name;
+ /*       for (var i in td["interaction"]) {
             if (JSON.stringify(td["interaction"][i]["iot:capability"]) === '{}') {
                 // console.log("SPLICE");
                 td["interaction"].splice(i, 1);
             }
-        }
+        }*/
         if (td["properties"]) {
             var p = td["properties"];
             for (var x in p) {
@@ -162,23 +167,23 @@ function postprocessTD(td, iphrefs) {
 function generateTDTemplate() {
 
     //TODO: In future should add also the capability here in td["@type"]
-    let path = require('path');
-    let context = fs.readFileSync(path.join(__dirname, "context.json"), 'utf8');
-    var json = JSON.parse(context);
-
-    /*	createContext();
-     if(td["@context"] == undefined)*/
-    td["@context"] = json;
+    //let path = require('path');
+    //let context = fs.readFileSync(path.join(__dirname, "context.json"), 'utf8');
+    //var json = JSON.parse(context);
+   
+   // var context = "https://www.w3.org/2019/wot/td/v1";
+   var context = "http://www.w3.org/ns/td";
+    td["@context"] = context;
     if (td["@type"].indexOf("Thing") == -1)
         td["@type"].push("Thing");
     //TODO:take uri as config parameter of the node and add it here
     td["base"] = uri;
     //TODO: take name as config parameter of the node and add it here
     td["name"] = name;
-    td["@id"] = "urn:dev:wot:" + name;
-    //td["security"] = [];
-    //var authorization = auth;
-    //td["security"].push(authorization);
+    td["id"] = "urn:dev:wot:" + name;
+    /*td["security"] = [];
+    var authorization = auth;
+    td["security"].push(authorization);*/
 
 }
 
@@ -190,8 +195,14 @@ function generateInteractions(data) {
             var tdproperty = {};
             var propertyName = data["interaction"]["name"];
             tdproperty["name"] = propertyName;
-            tdproperty["writable"] = {};
-            tdproperty["writable"] = data["interaction"]["writable"];
+            //tdproperty["writable"] = {};
+            //tdproperty["writable"] = data["interaction"]["writable"];
+			if(data["interaction"]["writable"] == true)
+            tdproperty["readOnly"] = false;
+		
+		    if(data["interaction"]["writable"] == false)
+            tdproperty["readOnly"] = true;
+		
             tdproperty["observable"] = true;
             tdproperty["@type"] = [];
             tdproperty["@type"].push(data["interaction"]["@type"]);
@@ -200,26 +211,41 @@ function generateInteractions(data) {
             tdproperty["iot:capability"]["@id"] = data["interaction"]["capability"];
             tdproperty["iot:isPropertyOf"] = {};
             tdproperty["iot:isPropertyOf"]["@id"] = data["interaction"]["isPropertyOf"];
-
-            if (ip["acceptsInputData"].length > 0 || ip["providesOutputData"].length > 0) {
-                if ((ip["acceptsInputData"]).indexOf("boolean") > -1 || (ip["providesOutputData"]).indexOf("boolean") > -1) {
-                    tdproperty["schema"] = {};
-                    tdproperty["schema"]["type"] = "boolean";
+console.log(JSON.stringify(ip));
+            if (ip["acceptsInputData"].length > -1 || ip["providesOutputData"].length > -1) {
+				console.log(JSON.stringify(ip["acceptsInputData"]));
+                if ( (ip["acceptsInputData"].indexOf("boolean") > -1) || (ip["providesOutputData"].indexOf("boolean") > -1)) {
+                    //tdproperty["schema"] = {};
+                    //tdproperty["schema"]["type"] = "boolean";
+					tdproperty["type"] = "boolean";
 
                 } else if ((ip["acceptsInputData"]).indexOf("string") > -1 || (ip["providesOutputData"]).indexOf("string") > -1) {
-                    tdproperty["schema"] = {};
-                    tdproperty["schema"]["type"] = "string";
+                    //tdproperty["schema"] = {};
+                    //tdproperty["schema"]["type"] = "string";
+					tdproperty["type"] = "string";
 
                 } else {
-                    tdproperty["schema"] = {};
+                    /*tdproperty["schema"] = {};
                     tdproperty["schema"]["type"] = "object";
                     tdproperty["schema"]["field"] = [];
                     var result = processIPData(data["data"], tdproperty["schema"]["field"]);
-                    tdproperty["schema"]["field"].push(result);
+                    tdproperty["schema"]["field"].push(result);*/
+                    var result = processIPData(data["data"]);
+					if((result["type"] == "boolean")){
+						tdproperty["type"] = "boolean";
+					}
+					else if((result["type"] == "string")){
+						tdproperty["type"] = "string";
+					}
+					else{
+					tdproperty["type"] = "object";
+					tdproperty["properties"] = {};	
+                    tdproperty["properties"] = result;	
+                    }					
                 }
             }
-            tdproperty["form"] = [];
-            tdproperty["form"][0] = {};
+            tdproperty["forms"] = [];
+            tdproperty["forms"][0] = {};
             /*if(iphrefs!=undefined){
              for(var i in iphrefs){
              console.log(i);
@@ -230,12 +256,12 @@ function generateInteractions(data) {
              }
              }*/
             //else{
-            tdproperty["form"][0]["href"] = uri + "/" + propertyName;
-            tdproperty["form"][0]["mediaType"] = "application/json";
+            tdproperty["forms"][0]["href"] = uri + "/" + propertyName;
+            tdproperty["forms"][0]["mediaType"] = "application/json";
             //}
 
-            td["interaction"].push(tdproperty);
-            //td["properties"][propertyName] = tdproperty;
+            //td["interaction"].push(tdproperty);
+            td["properties"][propertyName] = tdproperty;
 
         } else if (data["interaction"]["observable"] == undefined) {
             var tdaction = {};
@@ -250,47 +276,48 @@ function generateInteractions(data) {
             tdaction["iot:isActionOf"] = {};
             tdaction["iot:isActionOf"]["@id"] = data["interaction"]["isActionOf"];
             if (ip["acceptsInputData"].length > 0) {
-                tdaction["inputSchema"] = {};
+                tdaction["input"] = {};
                 if ((ip["acceptsInputData"]).indexOf("boolean") > -1) {
-                    tdaction["inputSchema"]["type"] = "boolean";
+                    tdaction["input"]["type"] = "boolean";
                 } else if ((ip["acceptsInputData"]).indexOf("string") > -1) {
-                    tdaction["inputSchema"]["type"] = "string";
+                    tdaction["input"]["type"] = "string";
                 } else {
-                    tdaction["inputSchema"] = {};
-                    tdaction["inputSchema"]["type"] = "object";
-                    tdaction["inputSchema"]["field"] = [];
-                    var result = processIPData(data["data"], tdaction["inputSchema"]["field"]);
-                    tdaction["inputSchema"]["field"].push(result);
+                    tdaction["input"] = {};
+                    tdaction["input"]["type"] = "object";
+                    tdaction["input"]["properties"] = {};
+                    var result = processIPData(data["data"]);
+                    tdaction["input"]["properties"] = result;
                 }
             }
             if (ip["providesOutputData"].length > 0) {
-                tdaction["outputSchema"] = {};
+                tdaction["output"] = {};
                 if ((ip["providesOutputData"]).indexOf("boolean") > -1) {
                     /*	var dataproperty = {};
                      dataproperty[actionName] = {};
                      var datatype = {};
                      datatype["type"] = "boolean";
                      dataproperty[actionName] = datatype;*/
-                    tdaction["outputSchema"]["type"] = "boolean";
+                    tdaction["output"]["type"] = "boolean";
                 } else if ((ip["providesOutputData"]).indexOf("string") > -1) {
                     /*	var dataproperty = {};
                      dataproperty[actionName] = {};
                      var datatype = {};
                      datatype["type"] = "boolean";
                      dataproperty[actionName] = datatype;*/
-                    tdaction["outputSchema"]["type"] = "string";
+                    tdaction["output"]["type"] = "string";
                 } else {
-                    tdaction["outputSchema"]["type"] = "object";
-                    tdaction["outputSchema"]["field"] = [];
-                    var result = processIPData(data["data"], tdaction["outputSchema"]["field"]);
-                    tdaction["outputSchema"]["field"].push(result);
+                    tdaction["output"]["type"] = "object";
+                    tdaction["output"]["properties"] = {};
+                    var result = processIPData(data["data"]);
+                    tdaction["output"]["properties"] = result;
                 }
             }
-            tdaction["form"] = [];
-            tdaction["form"][0] = {};
-            tdaction["form"][0]["href"] = uri + "/" + actionName;
-            tdaction["form"][0]["mediaType"] = "application/json";
-            td["interaction"].push(tdaction);
+            tdaction["forms"] = [];
+            tdaction["forms"][0] = {};
+            tdaction["forms"][0]["href"] = uri + "/" + actionName;
+            tdaction["forms"][0]["mediaType"] = "application/json";
+            //td["interaction"].push(tdaction);
+			td["actions"][actionName] = tdaction;
         }
     }
 }
@@ -355,13 +382,13 @@ function getJSONSchemaDatatype(jsonData) {
 
 function generateEnum(id, list) {
     var jsonData = {};
-    jsonData["field"] = {};
-    jsonData["field"]["type"] = "string";
+    //jsonData["field"] = {};
+    jsonData["type"] = "string";
     var values = [];
     for (var i = 0; i < list.length; i++) {
         values.push(list[i]);
     }
-    jsonData["field"]["enum"] = values;
+    jsonData["enum"] = values;
 
     return(jsonData);
 
