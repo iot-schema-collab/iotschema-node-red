@@ -11,6 +11,7 @@ let selectedRecipes = new Set([]);
 const contextDescription = '';
 const resources = ['interaction-patterns.jsonld', 'capability.jsonld', 'core.jsonld', 'unit.jsonld'];
 var deployed = false;
+const TDType = '"@type": "Thing"';
 function deploy() {
     //  if ($('#filePath').val() === '') {
     //      $('#filePathStatus').replaceWith("<div id='filePathStatus'style='margin-top: 15px;'>Please select the 
@@ -34,10 +35,11 @@ function readResourcesFromRemoteRepo() {
             $.ajax({
                 type: "POST",
                 url: TDURL,
+                crossDomain: true,
                 data: window.atob(data["content"]),
                 async: false,
                 headers: {
-                    'content-type': 'application/ld+json'
+                    'content-type': 'application/td+json'
                 },
             });
         });
@@ -48,9 +50,10 @@ function storeResourcesInTD() {
     $.ajax({
         type: "POST",
         url: TDURL,
+        crossDomain: true,
         data: window.atob(data["content"]),
         headers: {
-            'content-type': 'application/ld+json'
+            'content-type': 'application/td+json'
         },
     });
 }
@@ -93,18 +96,30 @@ function checkStatus() {
 
 function displayValue() {
     if (document.getElementById("retrieveTD").checked) {
+        storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'inline';
         retRecQuery.style.display = 'none';
+        $('#submitBtn').prop("disabled", false);
     } else if (document.getElementById("retriveRec").checked) {
+        storeTDQuery.style.display = 'none';
+        retTDQuery.style.display = 'none';
         retRecQuery.style.display = 'inline';
+        $('#submitBtn').prop("disabled", false);
+    } else if (document.getElementById("storeRec").checked) {
+        storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'none';
-    } else if (document.getElementById("retriveCap").checked) {
-        capQuery.style.display = 'inline';
         retRecQuery.style.display = 'none';
+        $('#submitBtn').prop("disabled", false);
+    } else if (document.getElementById("storeTD").checked) {
+        storeTDQuery.style.display = 'inline';
+        retTDQuery.style.display = 'none';
+        retRecQuery.style.display = 'none';
+        $('#submitBtn').prop("disabled", false);
     } else {
-        retRecQuery.style.display = 'none';
+        storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'none';
-        capQuery.style.display = 'none';
+        retRecQuery.style.display = 'none';
+        $('#submitBtn').prop("disabled", true);
     }
 }
 
@@ -113,7 +128,6 @@ function displayServerOptions() {
         serverPanel.style.display = 'none';
         remoteIDLocation.style.display = 'inline';
         connect.style.display = 'inline';
-        serverStatus.style.display = 'none';
 
 
     } else if (document.getElementById("localTD").checked) {
@@ -124,15 +138,18 @@ function displayServerOptions() {
 }
 
 function connectToRemoteTDServer() {
-
     $.ajax({
-        type: "HEAD",
+        type: "GET",
         async: true,
+        crossDomain: true,
+        dataType: 'jsonp',
         url: $('#remoteIDLocation').val(),
     }).done(function (message, text, jqXHR) {
-
-        $('#serverStatus').
-                replaceWith("<div id='serverStatus' style='margin-top: 20px;'>Server Status: Running</div>");
+        console.log("Server status", jqXHR.status);
+        serverStatus.style.display = 'inline';
+    }).fail(function(jqXHR, textstatus, errorThrown) {
+        console.log("jqXHR: ", $('#serverStatus'));
+        serverStatus.style.display = 'inline';
     });
 }
 
@@ -144,32 +161,77 @@ function onSubmit() {
 
 }
     if (document.getElementById("storeTD").checked) {
-
-        $.ajax({url: noderedFlowAPIURL, success: function (result) {
+        console.log("entered store TD "); 
+        let TDJson = $('#storeTDQuery').val();
+        $.ajax({url: noderedFlowAPIURL, crossDomain: true, success: function (result) {
 
                 let existingElements = getFlowNodes(result, RED.workspaces.active());
-
+            console.log("existingElements: ", existingElements);
                 let thingDescriptionNodes = existingElements.filter(function (element) {
                     let currentFlowNodes = element["type"] === "ThingDescriptionGenerator";
                     return (currentFlowNodes);
                 });
-
+            console.log("thingDescriptionNodes.length: ", thingDescriptionNodes.length);
                 if (thingDescriptionNodes.length > 0) {
                     isThingDescription = true;
                     $.getJSON('/TDGenerator/generatedContent', function (data) {
                         content = JSON.stringify(data);
+                        console.log("content:  ", content);
                         $.ajax({
                             type: "POST",
                             url: TDURL,
+                            crossDomain: true,
                             data: data,
                             headers: {
-                                'content-type': 'application/ld+json'
+                                'content-type': 'application/td+json'
                             },
                         });
                     });
-                } else {
-                    // TODO remove following hard coded content and take it from a file
-                    tdContext = '{"@context":{"URL":{"@id":"http://schema.org/URL"},\n\
+                } else if (TDJson.indexOf(TDType) >= 0) {
+                    if ($('#remoteIDLocation').val()){
+                        TDURL = $('#remoteIDLocation').val();
+                        if (!TDURL.indexOf("td") >= 0){
+                            TDURL = TDURL + "/td";
+                        }
+                    }
+                    console.log("location.hostname: ", location.hostname);
+                    $.ajax({
+                        type: "POST",
+                        url: TDURL,
+                        crossDomain: true,
+                        data: TDJson,
+                        headers: {
+                            'content-type': 'application/td+json'
+                        },
+                        success: function(result) {
+                            alert("successfully stored TD!");
+                        },
+                        error: function(jqxhr, status, exception){
+                            alert("exception:  ", exception);
+                        }
+                    });
+                    
+                }
+            }
+        }
+        );
+
+        // There are two cases
+        // 1. Store a Thing Description
+        //    We use the existance of TDGenerator node in the flow to indetify this scenario
+        //    
+        // 2. Store a Recipe
+        //    If there is no TDGenerator node in the flow, we decide it as a recipe
+        //    
+        // Access the global context of NodeRed using the API to get flow description
+    } else if (document.getElementById("storeRec").checked) {
+
+        $.ajax({
+            url: noderedFlowAPIURL, crossDomain: true, success: function (result) {
+
+                let existingElements = getFlowNodes(result, RED.workspaces.active());
+                console.log("existingElements: ", existingElements);
+                tdContext = '{"@context":{"URL":{"@id":"http://schema.org/URL"},\n\
                                    "interactionCounter_1":{"@id":"http://schema.org/interactionCounter_1"},\n\
                                     "Common":{"@id":"http://iotschema.org/Common"},"Industry":\n\
                                     {"@id":"http://iotschema.org/Industry"},"Unit":{"@id":"http://iotschema.org/Unit"},\n\
@@ -191,31 +253,35 @@ function onSubmit() {
                                     {"@id":"http://iotschema.org/FeatureOfInterest"},"Class":{"@id":"http://www.w3.org/2000/01/rdf-schema#Class"},\n\
                                     "type":{"@id":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"},"interactionType":\n\
                                     {"@id":"http://schema.org/interactionType"},"SoftwareApplication":{"@id":"http://schema.org/SoftwareApplication"},"domainIncludes":{"@id":"http://schema.org/domainIncludes"},"inverseOf":{"@id":"http://schema.org/inverseOf"},"label":{"@id":"http://www.w3.org/2000/01/rdf-schema#label"},"Mobility":{"@id":"http://iotschema.org/Mobility"},"programmingLanguage":{"@id":"http://schema.org/programmingLanguage"},"reviewCount":{"@id":"http://schema.org/reviewCount"},"aggregateRating":{"@id":"http://schema.org/aggregateRating"},"numberOfCodeCommits":{"@id":"http://nodered.org/model#numberOfCodeCommits"},"capability":{"@id":"http://iotschema.org/capability"},"observable":{"@id":"http://iotschema.org/observable"},"Operation":{"@id":"http://iot.schema.org/node/configuration#Operation"},"maxValue":{"@id":"http://schema.org/maxValue"},"Event":{"@id":"http://iotschema.org/Event"},"processorRequirements":{"@id":"http://schema.org/processorRequirements"},"nativeCode":{"@id":"http://nodered.org/model#nativeCode"},"wires":{"@id":"http://nodered.org/model#wires"},"x":{"@id":"http://nodered.org/model#positionX"},"y":{"@id":"http://nodered.org/model#positionY"},"z":{"@id":"http://nodered.org/model#positionZ"},"update":{"@id":"http://iot.schema.org/node/configuration#update"},"numberOfCodeContributors":{"@id":"http://nodered.org/model#numberOfCodeContributors"},"dailyDownloads":{"@id":"http://nodered.org/model#dailyDownloads"},"nodeRedVersion":{"@id":"http://nodered.org/model#nodeRedVersion"},"weeklyDownloads":{"@id":"http://nodered.org/model#weeklyDownloads"},"Domain":{"@id":"http://iotschema.org/Domain"},"InteractionCounter":{"@id":"http://schema.org/InteractionCounter"},"Building":{"@id":"http://iotschema.org/Building"},"StructuredValue":{"@id":"http://schema.org/StructuredValue"},"Capability":{"@id":"http://iotschema.org/Capability"},"rangeIncludes":{"@id":"http://schema.org/rangeIncludes"},"PropertyChangedEvent":{"@id":"http://iotschema.org/PropertyChangedEvent"},"numberOfCodeBranches":{"@id":"http://nodered.org/model#numberOfCodeBranches"},"location":{"@id":"http://iotschema.org/location"},"CreativeWork":{"@id":"http://schema.org/CreativeWork"},"AggregateRating":{"@id":"http://schema.org/AggregateRating"},"ConsumeAction":{"@id":"http://schema.org/ConsumeAction"},"ConfigurationAttribute":{"@id":"http://nodered.org/model#ConfigurationAttribute"},"disambiguatingDescription":{"@id":"http://schema.org/disambiguatingDescription"},"nodeHostedOn":{"@id":"http://nodered.org/model#nodeHostedOn"},"temporalCoverage":{"@id":"http://schema.org/temporalCoverage"},"CodeRepository":{"@id":"http://nodered.org/model#CodeRepository"},"operation":{"@id":"http://iot.schema.org/node/configuration#operation"},"id":{"@id":"http://schema.org/identifier"},"Rating":{"@id":"http://schema.org/Rating"},"codeQuality":{"@id":"http://nodered.org/model#codeQuality"},"Recipe":{"@id":"http://nodered.org/model#Recipe"},"SubFlowOutput":{"@id":"http://nodered.org/model#SubFlowOutput"},"out":{"@id":"http://nodered.org/model#subFlowOutput"},"in":{"@id":"http://nodered.org/model#subFlowInput"},"inputs":{"@id":"http://nodered.org/model#numberOfInputs"},"outputs":{"@id":"http://nodered.org/model#numberOfOutputs"},"operatingSystem":{"@id":"http://schema.org/operatingSystem"},"SoftwareSourceCode":{"@id":"http://schema.org/SoftwareSourceCode"},"occurrencesOfUnreachableCode":{"@id":"http://nodered.org/model#occurrencesOfUnreachableCode"},"keywords":{"@id":"http://schema.org/keywords"},"packageManager":{"@id":"http://nodered.org/model#packageManager"},"ratingValue":{"@id":"http://schema.org/ratingValue"},"Property":{"@id":"http://iotschema.org/Property"},"CodeQualityCharacteristics_1":{"@id":"http://nodered.org/model#CodeQualityCharacteristics_1"},"source":{"@id":"http://purl.org/dc/terms/source"},"InstallAction":{"@id":"http://schema.org/InstallAction"},"datePublished":{"@id":"http://schema.org/datePublished"},"Site":{"@id":"http://iotschema.org/Site"},"usesNode":{"@id":"http://nodered.org/model#usesNode"},"containsNode":{"@id":"http://nodered.org/model#containsNode"},"retrieve":{"@id":"http://iot.schema.org/node/configuration#retrieve"},"create":{"@id":"http://iot.schema.org/node/configuration#create"},"featureOfInterest":{"@id":"http://iotschema.org/isPropertyOf"},"Text":{"@id":"http://schema.org/Text"},"NodePackage":{"@id":"http://nodered.org/model#NodePackage"},"InteractionPattern":{"@id":"http://iotschema.org/InteractionPattern"},"Resource":{"@id":"http://www.w3.org/2000/01/rdf-schema#Resource"},"codeRepository_1":{"@id":"http://nodered.org/model#codeRepository_1"},"ChangePropertyAction":{"@id":"http://iotschema.org/ChangePropertyAction"},"monthlyDownloads":{"@id":"http://nodered.org/model#monthlyDownloads"},"Actuator":{"@id":"http://iotschema.org/Actuator"},"numberOfCodeStars":{"@id":"http://nodered.org/model#numberOfCodeStars"},"numberOfCodeIssue":{"@id":"http://nodered.org/model#numberOfCodeIssue"},"Enumeration":{"@id":"http://schema.org/Enumeration"},"name":{"@id":"http://schema.org/name"},"info":{"@id":"http://www.w3.org/2000/01/rdf-schema#comment"},"color-namer":{"@id":"http://nodered.org/model#color-namer"},"Philips_Hue_Log_File_and_E-Mail":{"@id":"http://nodered.org/model#Philips_Hue_Log_File_and_E-Mail"},"numberOfCodeWatcher":{"@id":"http://nodered.org/model#numberOfCodeWatcher"},"Device":{"@id":"http://iotschema.org/Device"},"SubFlowInput":{"@id":"http://nodered.org/model#SubFlowInput"},"Action":{"@id":"http://iotschema.org/Action"},"Node":{"@id":"http://nodered.org/model#Node"},"numberOfCodeReleases":{"@id":"http://nodered.org/model#numberOfCodeReleases"},"minValue":{"@id":"http://schema.org/minValue"},"configurationAttribute":{"@id":"http://nodered.org/model#configurationAttribute"},"numberOfPullRequests":{"@id":"http://nodered.org/model#numberOfPullRequests"},"description":{"@id":"http://schema.org/description"},"numberOfCodeBestPractices":{"@id":"http://nodered.org/model#numberOfCodeBestPractices"},"unitCode":{"@id":"http://schema.org/unitCode"},"Flow":{"@id":"http://nodered.org/model#Flow"},"softwareVersion":{"@id":"http://schema.org/softwareVersion"},"occurrencesOfErrorProneCode":{"@id":"http://nodered.org/model#occurrencesOfErrorProneCode"},"npmVersion":{"@id":"http://nodered.org/model#npmVersion"},"Sensor":{"@id":"http://iotschema.org/Sensor"}},"@graph":[]}';
-                    context = JSON.parse(tdContext);
-                    context['@graph'] = existingElements;
-                    $.ajax({
-                        type: "POST",
-                        url: TDURL,
-                        data: JSON.stringify(context),
-                        headers: {
-                            'content-type': 'application/ld+json'
-                        }
-                    });
+                context = JSON.parse(tdContext);
+                context['@graph'] = existingElements;
+                if ($('#remoteIDLocation').val()) {
+                    VOCAB_URL = $('#remoteIDLocation').val();
+                    if (!VOCAB_URL.indexOf("vocab") >= 0) {
+                        VOCAB_URL = VOCAB_URL + "/vocab";
+                    }
                 }
+                $.ajax({
+                    type: "POST",
+                    url: VOCAB_URL,
+                    crossDomain: true,
+                    data: JSON.stringify(context),
+                    headers: {
+                        'content-type': 'application/td+json'
+                    },
+                    success: function (result) {
+                        alert("successfully stored recipe!");
+                    },
+                    error: function (jqxhr, status, exception) {
+                        alert("exception:  ", exception);
+                    }
+                });
             }
         }
         );
 
-        // There are two cases
-        // 1. Store a Thing Description
-        //    We use the existance of TDGenerator node in the flow to indetify this scenario
-        //    
-        // 2. Store a Recipe
-        //    If there is no TDGenerator node in the flow, we decide it as a recipe
-        //    
-        // Access the global context of NodeRed using the API to get flow description
-    } else if (document.getElementById("retriveCap").checked) {
-       
+    }  else if (document.getElementById("retriveCap").checked) {
+        console.log("entered store TD "); 
        
        var cap = $('#capQuery').val();
        var rawQuery = "?o WHERE { GRAPH ?g { ?s  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://iotschema.org/Capability> . ?s <http://iotschema.org/providesInteractionPattern> ?o . FILTER (?s= <http://iotschema.org/";
@@ -229,6 +295,7 @@ function onSubmit() {
         url: TD_LOOKUP_URL + encodeURIComponent(rawQuery),
         type: 'GET',
         dataType: "text",
+           crossDomain: true,
         success: function(res,body) {
             
             var reg = /http:\/\/iotschema.org\/[A-Za-z0-9]+./g
@@ -241,7 +308,7 @@ function onSubmit() {
   		
              }
 
-capResults = "<div id='capabilityResultSet'><select id='capabilitySelect' multiple onchange='addCapability()'>"
+        capResults = "<div id='capabilityResultSet'><select id='capabilitySelect' multiple onchange='addCapability()'>"
        for (capability in capabilities){
        	capResults = capResults.concat("<option value='"+capabilities[capability]+"'>"+capabilities[capability]+"</option>");
         console.log(capResults)
@@ -254,8 +321,6 @@ capResults = "<div id='capabilityResultSet'><select id='capabilitySelect' multip
        
        
     
-    } else if (document.getElementById("retrieveTD").checked) {
-
     } else if (document.getElementById("retriveRec").checked) {
 
         $.getJSON(TDURL, function (data) {
@@ -296,7 +361,7 @@ function addCapabilityNode(positions, nodeType) {
 }
 
 function getCapabilityNodePosition(callback, nodeType) {
-    $.ajax({url: noderedFlowAPIURL, success: function (result) {
+    $.ajax({url: noderedFlowAPIURL, crossDomain: true, success: function (result) {
 
             let existingElements = getFlowNodes(result, RED.workspaces.active());
 
@@ -355,6 +420,7 @@ function importRecipe() {
         $.ajax({
             type: "POST",
             url: noderedFlowAdminAPIURL,
+            crossDomain: true,
             data: JSON.stringify(flowDescription),
             dataType: "json",
             contentType: "application/json"
