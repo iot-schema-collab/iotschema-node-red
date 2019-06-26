@@ -50,11 +50,16 @@
                               <input type='radio' name='action' id='storeTD' value='store' Onchange=displayValue()> Store TD</input><br/>\n\
                               <input type='text' name='storeTDQuery' id='storeTDQuery' style='display:none'></input><br/>\n\
                               <input type='radio' name='action' id='storeRec' value='store' Onchange=displayValue()> Store Recipe</input><br/>\n\
-                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Retrieve TD</input><br/>\n\
+                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Discover TD</input><br/>\n\
                               <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
-                              <input type='radio' name='action'id='retriveRec' value='retrieverec'Onchange=displayValue()> Retrieve Recipe</input><br/>\n\
+                              <input type='radio' name='action'id='retriveRec' value='retrieverec' Onchange=displayValue()> Discover Recipe</input><br/>\n\
+                              <select name='retRecSelect' id='retRecSelect' style='display:none' Onchange=setDiscoverRecipeParam()>\n\
+                              <option value='recName'>Recipe Name</option>\n\
+                              <option value='deviceCap'>Device Capability</option>\n\
+                              <option value='ingredType'>Ingredient Type</option>\n\
+                              </select><br/>\n\
                               <input type='text' name='retRecQuery' id='retRecQuery' style='display:none'></input><br/>\n\
-                              <button id='submitBtn' onclick=onSubmit()>Store/Retrieve</button> \n\
+                              <button id='submitBtn' onclick=onSubmit()>Store/Discover</button> \n\
                               </fieldset>\n\
                               </td></tr>\n\
                               <tr><td colspan='2'><div style='margin-top: 20px;' id='resultList'>\n\
@@ -62,10 +67,10 @@
                               <tr><td colspan='2'><div style='margin-top: 20px;' id='information'>\n\
                               </div></td></tr>\n\
                               </table></div>\n\
-                              </html>"/*,
+                              </html>",
                     onchange: function () {
                         checkStatus();
-                    }*/
+                    }
                 });
 
                 RED.actions.add("core:show-TDConfigure-tab", function () {
@@ -82,11 +87,20 @@
                               <input type='radio' name='action' id='storeTD' value='store' Onchange=displayValue()> Store TD</input><br/>\n\
                               <input type='text' name='storeTDQuery' id='storeTDQuery' style='display:none'></input><br/>\n\
                               <input type='radio' name='action' id='storeRec' value='store' Onchange=displayValue()> Store Recipe</input><br/>\n\
-                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Retrieve TD</input><br/>\n\
+                              <input type='radio' name='action' id='retrieveTD' value='retrievetd' Onchange=displayValue()> Discover TD</input><br/>\n\
                               <input type='text' name='retTDQuery' id='retTDQuery' style='display:none'></input><br/>\n\
-                              <input type='radio' name='action'id='retriveRec' value='retrieverec'Onchange=displayValue()> Retrieve Recipe</input><br/>\n\
+                              <input type='radio' name='action'id='retriveRec' value='retrieverec' Onchange=displayValue()> Discover Recipe</input><br/>\n\
+                              <select name='retRecSelect' id='retRecSelect' style='display:none' Onchange=setDiscoverRecipeParam()>\n\
+                              <option disabled selected value> -- select an option --</option>\n\
+                              <option value='recName'>Recipe Name</option>\n\
+                              <option value='deviceCap'>Device Capability</option>\n\
+                              <option value='ingredType'>Ingredient Type</option>\n\
+                              </select><br/>\n\
                               <input type='text' name='retRecQuery' id='retRecQuery' style='display:none'></input><br/>\n\
-                              <button id='submitBtn' onclick=onSubmit()>Store/Retrieve</button> \n\
+                              <button id='submitBtn' onclick=onSubmit()>Store/Discover</button> \n\
+                              <div id='recipeList1'></div>\n\
+                              <div id='recipeList2'></div>\n\
+                              <div id='recipeList3'></div>\n\
                               </fieldset>\n\
                               </td></tr>\n\
                               <tr><td colspan='2'><div style='margin-top: 20px;' id='resultList'>\n\
