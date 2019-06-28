@@ -8,10 +8,37 @@ const iotSchemaGitURL = "https://api.github.com/repos/aparnathuluva/iotschema/co
 let isThingDescription = false;
 let recipesToBeimported = {};
 let selectedRecipes = new Set([]);
+let vocabQueryParamList = [];
 const contextDescription = '';
 const resources = ['interaction-patterns.jsonld', 'capability.jsonld', 'core.jsonld', 'unit.jsonld'];
 var deployed = false;
 const TDType = '"@type": "Thing"';
+let discoverRecipeParam = '';
+let tdContext = '{"@context":{"URL":{"@id":"http://schema.org/URL"},\n\
+                                   "interactionCounter_1":{"@id":"http://schema.org/interactionCounter_1"},\n\
+                                    "Common":{"@id":"http://iotschema.org/Common"},"Industry":\n\
+                                    {"@id":"http://iotschema.org/Industry"},"Unit":{"@id":"http://iotschema.org/Unit"},\n\
+                                    "interactionStatistic":{"@id":"http://schema.org/interactionStatistic"},"hue-light":\n\
+                                    {"@id":"http://nodered.org/model#hue-light"},"versionInfo":{"@id":"http://www.w3.org/2002/07/owl#versionInfo"},\n\
+                                    "userInteractionCount":{"@id":"http://schema.org/userInteractionCount"},\n\
+                                    "observe":{"@id":"http://iot.schema.org/node/configuration#observe"},"license":\n\
+                                    {"@id":"http://schema.org/license"},"url":{"@id":"http://schema.org/url"},"propertyValues":\n\
+                                    {"@id":"http://iot.schema.org/node/configuration#propertyValues"},"runtimePlatform":\n\
+                                    {"@id":"http://schema.org/runtimePlatform"},"accountablePerson":{"@id":"http://schema.org/accountablePerson"},\n\
+                                    "nodePackage_1":{"@id":"http://nodered.org/model#nodePackage_1"},\n\
+                                    "CodeDependency":{"@id":"http://nodered.org/model#CodeDependency"},\n\
+                                    "Equipment":{"@id":"http://iotschema.org/Equipment"},"Thing":{"@id":"http://schema.org/Thing"},\n\
+                                    "SubFlow":{"@id":"http://nodered.org/model#SubFlow"},"numberOfCodeForks":\n\
+                                    {"@id":"http://nodered.org/model#numberOfCodeForks"},"dateModified":{"@id":"http://schema.org/dateModified"},\n\
+                                    "CodeQualityCharacteristics":{"@id":"http://nodered.org/model#CodeQualityCharacteristics"},\n\
+                                    "aggregateRating_1":{"@id":"http://nodered.org/model#aggregateRating_1"},\n\
+                                    "delete":{"@id":"http://iot.schema.org/node/configuration#delete"},"FeatureOfInterest":\n\
+                                    {"@id":"http://iotschema.org/FeatureOfInterest"},"Class":{"@id":"http://www.w3.org/2000/01/rdf-schema#Class"},\n\
+                                    "type":{"@id":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"},"interactionType":\n\
+                                    {"@id":"http://schema.org/interactionType"},"SoftwareApplication":{"@id":"http://schema.org/SoftwareApplication"},"domainIncludes":{"@id":"http://schema.org/domainIncludes"},"inverseOf":{"@id":"http://schema.org/inverseOf"},"label":{"@id":"http://www.w3.org/2000/01/rdf-schema#label"},"Mobility":{"@id":"http://iotschema.org/Mobility"},"programmingLanguage":{"@id":"http://schema.org/programmingLanguage"},"reviewCount":{"@id":"http://schema.org/reviewCount"},"aggregateRating":{"@id":"http://schema.org/aggregateRating"},"numberOfCodeCommits":{"@id":"http://nodered.org/model#numberOfCodeCommits"},"capability":{"@id":"http://iotschema.org/capability"},"observable":{"@id":"http://iotschema.org/observable"},"Operation":{"@id":"http://iot.schema.org/node/configuration#Operation"},"maxValue":{"@id":"http://schema.org/maxValue"},"Event":{"@id":"http://iotschema.org/Event"},"processorRequirements":{"@id":"http://schema.org/processorRequirements"},"nativeCode":{"@id":"http://nodered.org/model#nativeCode"},"wires":{"@id":"http://nodered.org/model#wires"},"x":{"@id":"http://nodered.org/model#positionX"},"y":{"@id":"http://nodered.org/model#positionY"},"z":{"@id":"http://nodered.org/model#positionZ"},"update":{"@id":"http://iot.schema.org/node/configuration#update"},"numberOfCodeContributors":{"@id":"http://nodered.org/model#numberOfCodeContributors"},"dailyDownloads":{"@id":"http://nodered.org/model#dailyDownloads"},"nodeRedVersion":{"@id":"http://nodered.org/model#nodeRedVersion"},"weeklyDownloads":{"@id":"http://nodered.org/model#weeklyDownloads"},"Domain":{"@id":"http://iotschema.org/Domain"},"InteractionCounter":{"@id":"http://schema.org/InteractionCounter"},"Building":{"@id":"http://iotschema.org/Building"},"StructuredValue":{"@id":"http://schema.org/StructuredValue"},"Capability":{"@id":"http://iotschema.org/Capability"},"rangeIncludes":{"@id":"http://schema.org/rangeIncludes"},"PropertyChangedEvent":{"@id":"http://iotschema.org/PropertyChangedEvent"},"numberOfCodeBranches":{"@id":"http://nodered.org/model#numberOfCodeBranches"},"location":{"@id":"http://iotschema.org/location"},"CreativeWork":{"@id":"http://schema.org/CreativeWork"},"AggregateRating":{"@id":"http://schema.org/AggregateRating"},"ConsumeAction":{"@id":"http://schema.org/ConsumeAction"},"ConfigurationAttribute":{"@id":"http://nodered.org/model#ConfigurationAttribute"},"disambiguatingDescription":{"@id":"http://schema.org/disambiguatingDescription"},"nodeHostedOn":{"@id":"http://nodered.org/model#nodeHostedOn"},"temporalCoverage":{"@id":"http://schema.org/temporalCoverage"},"CodeRepository":{"@id":"http://nodered.org/model#CodeRepository"},"operation":{"@id":"http://iot.schema.org/node/configuration#operation"},"id":{"@id":"http://schema.org/identifier"},"Rating":{"@id":"http://schema.org/Rating"},"codeQuality":{"@id":"http://nodered.org/model#codeQuality"},"Recipe":{"@id":"http://nodered.org/model#Recipe"},"SubFlowOutput":{"@id":"http://nodered.org/model#SubFlowOutput"},"out":{"@id":"http://nodered.org/model#subFlowOutput"},"in":{"@id":"http://nodered.org/model#subFlowInput"},"inputs":{"@id":"http://nodered.org/model#numberOfInputs"},"outputs":{"@id":"http://nodered.org/model#numberOfOutputs"},"operatingSystem":{"@id":"http://schema.org/operatingSystem"},"SoftwareSourceCode":{"@id":"http://schema.org/SoftwareSourceCode"},"occurrencesOfUnreachableCode":{"@id":"http://nodered.org/model#occurrencesOfUnreachableCode"},"keywords":{"@id":"http://schema.org/keywords"},"packageManager":{"@id":"http://nodered.org/model#packageManager"},"ratingValue":{"@id":"http://schema.org/ratingValue"},"Property":{"@id":"http://iotschema.org/Property"},"CodeQualityCharacteristics_1":{"@id":"http://nodered.org/model#CodeQualityCharacteristics_1"},"source":{"@id":"http://purl.org/dc/terms/source"},"InstallAction":{"@id":"http://schema.org/InstallAction"},"datePublished":{"@id":"http://schema.org/datePublished"},"Site":{"@id":"http://iotschema.org/Site"},"usesNode":{"@id":"http://nodered.org/model#usesNode"},"containsNode":{"@id":"http://nodered.org/model#containsNode"},"retrieve":{"@id":"http://iot.schema.org/node/configuration#retrieve"},"create":{"@id":"http://iot.schema.org/node/configuration#create"},"featureOfInterest":{"@id":"http://iotschema.org/isPropertyOf"},"Text":{"@id":"http://schema.org/Text"},"NodePackage":{"@id":"http://nodered.org/model#NodePackage"},"InteractionPattern":{"@id":"http://iotschema.org/InteractionPattern"},"Resource":{"@id":"http://www.w3.org/2000/01/rdf-schema#Resource"},"codeRepository_1":{"@id":"http://nodered.org/model#codeRepository_1"},"ChangePropertyAction":{"@id":"http://iotschema.org/ChangePropertyAction"},"monthlyDownloads":{"@id":"http://nodered.org/model#monthlyDownloads"},"Actuator":{"@id":"http://iotschema.org/Actuator"},"numberOfCodeStars":{"@id":"http://nodered.org/model#numberOfCodeStars"},"numberOfCodeIssue":{"@id":"http://nodered.org/model#numberOfCodeIssue"},"Enumeration":{"@id":"http://schema.org/Enumeration"},"name":{"@id":"http://schema.org/name"},"info":{"@id":"http://www.w3.org/2000/01/rdf-schema#comment"},"color-namer":{"@id":"http://nodered.org/model#color-namer"},"Philips_Hue_Log_File_and_E-Mail":{"@id":"http://nodered.org/model#Philips_Hue_Log_File_and_E-Mail"},"numberOfCodeWatcher":{"@id":"http://nodered.org/model#numberOfCodeWatcher"},"Device":{"@id":"http://iotschema.org/Device"},"SubFlowInput":{"@id":"http://nodered.org/model#SubFlowInput"},"Action":{"@id":"http://iotschema.org/Action"},"Node":{"@id":"http://nodered.org/model#Node"},"numberOfCodeReleases":{"@id":"http://nodered.org/model#numberOfCodeReleases"},"minValue":{"@id":"http://schema.org/minValue"},"configurationAttribute":{"@id":"http://nodered.org/model#configurationAttribute"},"numberOfPullRequests":{"@id":"http://nodered.org/model#numberOfPullRequests"},"description":{"@id":"http://schema.org/description"},"numberOfCodeBestPractices":{"@id":"http://nodered.org/model#numberOfCodeBestPractices"},"unitCode":{"@id":"http://schema.org/unitCode"},"Flow":{"@id":"http://nodered.org/model#Flow"},"softwareVersion":{"@id":"http://schema.org/softwareVersion"},"occurrencesOfErrorProneCode":{"@id":"http://nodered.org/model#occurrencesOfErrorProneCode"},"npmVersion":{"@id":"http://nodered.org/model#npmVersion"},"Sensor":{"@id":"http://iotschema.org/Sensor"}},"@graph":[]}';
+let context = JSON.parse(tdContext);
+let unstructuredRecipe = [];
+
 function deploy() {
     //  if ($('#filePath').val() === '') {
     //      $('#filePathStatus').replaceWith("<div id='filePathStatus'style='margin-top: 15px;'>Please select the 
@@ -98,30 +125,36 @@ function displayValue() {
     if (document.getElementById("retrieveTD").checked) {
         storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'inline';
+        retRecSelect.style.display = 'none';
         retRecQuery.style.display = 'none';
         $('#submitBtn').prop("disabled", false);
     } else if (document.getElementById("retriveRec").checked) {
         storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'none';
-        retRecQuery.style.display = 'inline';
+        retRecSelect.style.display = 'inline';
+        retRecQuery.style.display = 'none';
         $('#submitBtn').prop("disabled", false);
     } else if (document.getElementById("storeRec").checked) {
         storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'none';
+        retRecSelect.style.display = 'none';
         retRecQuery.style.display = 'none';
         $('#submitBtn').prop("disabled", false);
     } else if (document.getElementById("storeTD").checked) {
         storeTDQuery.style.display = 'inline';
         retTDQuery.style.display = 'none';
+        retRecSelect.style.display = 'none';
         retRecQuery.style.display = 'none';
         $('#submitBtn').prop("disabled", false);
     } else {
         storeTDQuery.style.display = 'none';
         retTDQuery.style.display = 'none';
+        retRecSelect.style.display = 'none';
         retRecQuery.style.display = 'none';
         $('#submitBtn').prop("disabled", true);
     }
 }
+
 
 function displayServerOptions() {
     if (document.getElementById("remoteTD").checked) {
@@ -153,30 +186,134 @@ function connectToRemoteTDServer() {
     });
 }
 
+function setDiscoverRecipeParam() {
+    if (document.getElementById("retriveRec").checked) {
+        retRecQuery.style.display = 'inline';
+        discoverRecipeParam = document.getElementById("retRecSelect").value;
+    }
+}
+
+function retrieveRecipe(param) {
+    var index = 0;
+    switch (param){
+        case 1: index = 0; break;
+        case 2: index = 1; break;
+        case 3: index = 2; break;
+        default: index = 0;
+    }
+    let recipeId = vocabQueryParamList[index];
+    let structureRecipe = [];
+    if ($('#remoteIDLocation').val()) {
+        VOCAB_URL = $('#remoteIDLocation').val();
+        if (!VOCAB_URL.indexOf("vocab") >= 0) {
+            VOCAB_URL = VOCAB_URL + "/vocab";
+        }
+    }
+
+    VOCAB_URL = VOCAB_URL + "/" + recipeId;
+
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: VOCAB_URL,
+        crossDomain: true,
+        data: '',
+        headers: {
+            'content-type': 'application/td+json'
+        },
+        success: function (result) {
+            unstructuredRecipe = result;
+            structureRecipe = structure(unstructuredRecipe);
+            console.log("structureRecipe: ", structureRecipe);
+        },
+        error: function (jqxhr, status, exception) {
+            alert("exception:  " + exception);
+        }
+    });
+
+}
+
+function structure(unstructuredRecipe) {
+
+    let unstructuredData = [];
+    unstructuredData = unstructuredRecipe;
+    console.log("unstructuredData: ", unstructuredData);
+    let s = {};
+    Object.keys(context['@context']).forEach(k => {
+        s[k] = Object.values(context['@context'][k])[0];
+    });
+
+    let s1 = [];
+    let i = 0;
+    unstructuredData.forEach(obj => {
+        let temp = {};
+        if (obj instanceof Object) {
+            Object.keys(obj).forEach(k => {
+                if (k !== '@id') {
+                    for (let m = 0; m < Object.values(obj[k]).length; m++) {
+                        var t = {};
+                        let tArray = [];
+                        t = Object.values(obj[k])[m];
+                        if (m === 1) {
+                            tArray.push((Object.values(obj[k])[0])['@value']);
+                            tArray.push(t['@value']);
+                        } else if (m > 1) {
+                            tArray.push(t['@value']);
+                        } else if (k === 'http://nodered.org/model#wires' && m === 0) {
+                            console.log("inside: ", obj);
+                            tArray.push(t['@value']);
+                        }
+                        if (tArray.length > 1) {
+                            finalArray = [];
+                            finalArray[0] = tArray;
+                            temp[k] = finalArray;
+                        } else {
+                            temp[k] = t['@value'];
+                        }
+                    }
+                }
+            })
+        }
+        s1[i] = temp;
+        i++;
+    });
+
+    let s2 = [];
+    let j = 0;
+
+    s1.forEach(obj => {
+        let newObj = {};
+        Object.keys(obj).forEach(k => {
+            Object.keys(s).forEach(temp => {
+                if (s[temp] === k) {
+                    newObj[temp] = obj[k];
+                }
+            })
+        })
+        s2[j] = newObj;
+        j++;
+    });
+   return s2; 
+}
+
 function onSubmit() {
     if(!deployed){
     //readResourcesFromRemoteRepo();
     deployed = true;
-
-
 }
     if (document.getElementById("storeTD").checked) {
-        console.log("entered store TD "); 
         let TDJson = $('#storeTDQuery').val();
         $.ajax({url: noderedFlowAPIURL, crossDomain: true, success: function (result) {
 
                 let existingElements = getFlowNodes(result, RED.workspaces.active());
-            console.log("existingElements: ", existingElements);
                 let thingDescriptionNodes = existingElements.filter(function (element) {
                     let currentFlowNodes = element["type"] === "ThingDescriptionGenerator";
                     return (currentFlowNodes);
                 });
-            console.log("thingDescriptionNodes.length: ", thingDescriptionNodes.length);
                 if (thingDescriptionNodes.length > 0) {
                     isThingDescription = true;
                     $.getJSON('/TDGenerator/generatedContent', function (data) {
                         content = JSON.stringify(data);
-                        console.log("content:  ", content);
                         $.ajax({
                             type: "POST",
                             url: TDURL,
@@ -194,7 +331,6 @@ function onSubmit() {
                             TDURL = TDURL + "/td";
                         }
                     }
-                    console.log("location.hostname: ", location.hostname);
                     $.ajax({
                         type: "POST",
                         url: TDURL,
@@ -231,29 +367,6 @@ function onSubmit() {
 
                 let existingElements = getFlowNodes(result, RED.workspaces.active());
                 console.log("existingElements: ", existingElements);
-                tdContext = '{"@context":{"URL":{"@id":"http://schema.org/URL"},\n\
-                                   "interactionCounter_1":{"@id":"http://schema.org/interactionCounter_1"},\n\
-                                    "Common":{"@id":"http://iotschema.org/Common"},"Industry":\n\
-                                    {"@id":"http://iotschema.org/Industry"},"Unit":{"@id":"http://iotschema.org/Unit"},\n\
-                                    "interactionStatistic":{"@id":"http://schema.org/interactionStatistic"},"hue-light":\n\
-                                    {"@id":"http://nodered.org/model#hue-light"},"versionInfo":{"@id":"http://www.w3.org/2002/07/owl#versionInfo"},\n\
-                                    "userInteractionCount":{"@id":"http://schema.org/userInteractionCount"},\n\
-                                    "observe":{"@id":"http://iot.schema.org/node/configuration#observe"},"license":\n\
-                                    {"@id":"http://schema.org/license"},"url":{"@id":"http://schema.org/url"},"propertyValues":\n\
-                                    {"@id":"http://iot.schema.org/node/configuration#propertyValues"},"runtimePlatform":\n\
-                                    {"@id":"http://schema.org/runtimePlatform"},"accountablePerson":{"@id":"http://schema.org/accountablePerson"},\n\
-                                    "nodePackage_1":{"@id":"http://nodered.org/model#nodePackage_1"},\n\
-                                    "CodeDependency":{"@id":"http://nodered.org/model#CodeDependency"},\n\
-                                    "Equipment":{"@id":"http://iotschema.org/Equipment"},"Thing":{"@id":"http://schema.org/Thing"},\n\
-                                    "SubFlow":{"@id":"http://nodered.org/model#SubFlow"},"numberOfCodeForks":\n\
-                                    {"@id":"http://nodered.org/model#numberOfCodeForks"},"dateModified":{"@id":"http://schema.org/dateModified"},\n\
-                                    "CodeQualityCharacteristics":{"@id":"http://nodered.org/model#CodeQualityCharacteristics"},\n\
-                                    "aggregateRating_1":{"@id":"http://nodered.org/model#aggregateRating_1"},\n\
-                                    "delete":{"@id":"http://iot.schema.org/node/configuration#delete"},"FeatureOfInterest":\n\
-                                    {"@id":"http://iotschema.org/FeatureOfInterest"},"Class":{"@id":"http://www.w3.org/2000/01/rdf-schema#Class"},\n\
-                                    "type":{"@id":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"},"interactionType":\n\
-                                    {"@id":"http://schema.org/interactionType"},"SoftwareApplication":{"@id":"http://schema.org/SoftwareApplication"},"domainIncludes":{"@id":"http://schema.org/domainIncludes"},"inverseOf":{"@id":"http://schema.org/inverseOf"},"label":{"@id":"http://www.w3.org/2000/01/rdf-schema#label"},"Mobility":{"@id":"http://iotschema.org/Mobility"},"programmingLanguage":{"@id":"http://schema.org/programmingLanguage"},"reviewCount":{"@id":"http://schema.org/reviewCount"},"aggregateRating":{"@id":"http://schema.org/aggregateRating"},"numberOfCodeCommits":{"@id":"http://nodered.org/model#numberOfCodeCommits"},"capability":{"@id":"http://iotschema.org/capability"},"observable":{"@id":"http://iotschema.org/observable"},"Operation":{"@id":"http://iot.schema.org/node/configuration#Operation"},"maxValue":{"@id":"http://schema.org/maxValue"},"Event":{"@id":"http://iotschema.org/Event"},"processorRequirements":{"@id":"http://schema.org/processorRequirements"},"nativeCode":{"@id":"http://nodered.org/model#nativeCode"},"wires":{"@id":"http://nodered.org/model#wires"},"x":{"@id":"http://nodered.org/model#positionX"},"y":{"@id":"http://nodered.org/model#positionY"},"z":{"@id":"http://nodered.org/model#positionZ"},"update":{"@id":"http://iot.schema.org/node/configuration#update"},"numberOfCodeContributors":{"@id":"http://nodered.org/model#numberOfCodeContributors"},"dailyDownloads":{"@id":"http://nodered.org/model#dailyDownloads"},"nodeRedVersion":{"@id":"http://nodered.org/model#nodeRedVersion"},"weeklyDownloads":{"@id":"http://nodered.org/model#weeklyDownloads"},"Domain":{"@id":"http://iotschema.org/Domain"},"InteractionCounter":{"@id":"http://schema.org/InteractionCounter"},"Building":{"@id":"http://iotschema.org/Building"},"StructuredValue":{"@id":"http://schema.org/StructuredValue"},"Capability":{"@id":"http://iotschema.org/Capability"},"rangeIncludes":{"@id":"http://schema.org/rangeIncludes"},"PropertyChangedEvent":{"@id":"http://iotschema.org/PropertyChangedEvent"},"numberOfCodeBranches":{"@id":"http://nodered.org/model#numberOfCodeBranches"},"location":{"@id":"http://iotschema.org/location"},"CreativeWork":{"@id":"http://schema.org/CreativeWork"},"AggregateRating":{"@id":"http://schema.org/AggregateRating"},"ConsumeAction":{"@id":"http://schema.org/ConsumeAction"},"ConfigurationAttribute":{"@id":"http://nodered.org/model#ConfigurationAttribute"},"disambiguatingDescription":{"@id":"http://schema.org/disambiguatingDescription"},"nodeHostedOn":{"@id":"http://nodered.org/model#nodeHostedOn"},"temporalCoverage":{"@id":"http://schema.org/temporalCoverage"},"CodeRepository":{"@id":"http://nodered.org/model#CodeRepository"},"operation":{"@id":"http://iot.schema.org/node/configuration#operation"},"id":{"@id":"http://schema.org/identifier"},"Rating":{"@id":"http://schema.org/Rating"},"codeQuality":{"@id":"http://nodered.org/model#codeQuality"},"Recipe":{"@id":"http://nodered.org/model#Recipe"},"SubFlowOutput":{"@id":"http://nodered.org/model#SubFlowOutput"},"out":{"@id":"http://nodered.org/model#subFlowOutput"},"in":{"@id":"http://nodered.org/model#subFlowInput"},"inputs":{"@id":"http://nodered.org/model#numberOfInputs"},"outputs":{"@id":"http://nodered.org/model#numberOfOutputs"},"operatingSystem":{"@id":"http://schema.org/operatingSystem"},"SoftwareSourceCode":{"@id":"http://schema.org/SoftwareSourceCode"},"occurrencesOfUnreachableCode":{"@id":"http://nodered.org/model#occurrencesOfUnreachableCode"},"keywords":{"@id":"http://schema.org/keywords"},"packageManager":{"@id":"http://nodered.org/model#packageManager"},"ratingValue":{"@id":"http://schema.org/ratingValue"},"Property":{"@id":"http://iotschema.org/Property"},"CodeQualityCharacteristics_1":{"@id":"http://nodered.org/model#CodeQualityCharacteristics_1"},"source":{"@id":"http://purl.org/dc/terms/source"},"InstallAction":{"@id":"http://schema.org/InstallAction"},"datePublished":{"@id":"http://schema.org/datePublished"},"Site":{"@id":"http://iotschema.org/Site"},"usesNode":{"@id":"http://nodered.org/model#usesNode"},"containsNode":{"@id":"http://nodered.org/model#containsNode"},"retrieve":{"@id":"http://iot.schema.org/node/configuration#retrieve"},"create":{"@id":"http://iot.schema.org/node/configuration#create"},"featureOfInterest":{"@id":"http://iotschema.org/isPropertyOf"},"Text":{"@id":"http://schema.org/Text"},"NodePackage":{"@id":"http://nodered.org/model#NodePackage"},"InteractionPattern":{"@id":"http://iotschema.org/InteractionPattern"},"Resource":{"@id":"http://www.w3.org/2000/01/rdf-schema#Resource"},"codeRepository_1":{"@id":"http://nodered.org/model#codeRepository_1"},"ChangePropertyAction":{"@id":"http://iotschema.org/ChangePropertyAction"},"monthlyDownloads":{"@id":"http://nodered.org/model#monthlyDownloads"},"Actuator":{"@id":"http://iotschema.org/Actuator"},"numberOfCodeStars":{"@id":"http://nodered.org/model#numberOfCodeStars"},"numberOfCodeIssue":{"@id":"http://nodered.org/model#numberOfCodeIssue"},"Enumeration":{"@id":"http://schema.org/Enumeration"},"name":{"@id":"http://schema.org/name"},"info":{"@id":"http://www.w3.org/2000/01/rdf-schema#comment"},"color-namer":{"@id":"http://nodered.org/model#color-namer"},"Philips_Hue_Log_File_and_E-Mail":{"@id":"http://nodered.org/model#Philips_Hue_Log_File_and_E-Mail"},"numberOfCodeWatcher":{"@id":"http://nodered.org/model#numberOfCodeWatcher"},"Device":{"@id":"http://iotschema.org/Device"},"SubFlowInput":{"@id":"http://nodered.org/model#SubFlowInput"},"Action":{"@id":"http://iotschema.org/Action"},"Node":{"@id":"http://nodered.org/model#Node"},"numberOfCodeReleases":{"@id":"http://nodered.org/model#numberOfCodeReleases"},"minValue":{"@id":"http://schema.org/minValue"},"configurationAttribute":{"@id":"http://nodered.org/model#configurationAttribute"},"numberOfPullRequests":{"@id":"http://nodered.org/model#numberOfPullRequests"},"description":{"@id":"http://schema.org/description"},"numberOfCodeBestPractices":{"@id":"http://nodered.org/model#numberOfCodeBestPractices"},"unitCode":{"@id":"http://schema.org/unitCode"},"Flow":{"@id":"http://nodered.org/model#Flow"},"softwareVersion":{"@id":"http://schema.org/softwareVersion"},"occurrencesOfErrorProneCode":{"@id":"http://nodered.org/model#occurrencesOfErrorProneCode"},"npmVersion":{"@id":"http://nodered.org/model#npmVersion"},"Sensor":{"@id":"http://iotschema.org/Sensor"}},"@graph":[]}';
-                context = JSON.parse(tdContext);
                 context['@graph'] = existingElements;
                 if ($('#remoteIDLocation').val()) {
                     VOCAB_URL = $('#remoteIDLocation').val();
@@ -280,7 +393,61 @@ function onSubmit() {
         }
         );
 
-    }  else if (document.getElementById("retriveCap").checked) {
+    } else if (document.getElementById("retriveRec").checked) {
+        let retrivedRecipeNameList = {};
+        let queryParam = $('#retRecQuery').val();
+        if (discoverRecipeParam.indexOf("recName") >= 0){
+            queryParam = '?s <http://www.w3.org/2000/01/rdf-schema#label>' + '"' +queryParam + '"';
+        } else if (discoverRecipeParam.indexOf("deviceCap") >= 0) {
+            queryParam = '?s <http://iotschema.org/capability>' + '"iot:' + queryParam + '"';
+        } else if (discoverRecipeParam.indexOf("ingredType") >= 0) {
+            queryParam = '?s <http://schema.org/name>' + '"iot:' + queryParam + '"';
+        }
+        queryParam = encodeURIComponent(queryParam);
+
+        if ($('#remoteIDLocation').val()) {
+            TDURL = $('#remoteIDLocation').val();
+            if (!TDURL.indexOf("td") >= 0) {
+                TDURL = TDURL + "/td";
+            }
+        }
+        TDURL = TDURL + "-lookup/sem?query=" + queryParam;
+        $.ajax({
+            async: false,
+            type: "GET",
+            url: TDURL,
+            crossDomain: true,
+            data: '',
+            headers: {
+                'content-type': 'application/td+json'
+            },
+            success: function (result) {
+                retrivedRecipeNameList = result;
+                alert("successfully retrieved recipe list! " + result);
+            },
+            error: function (jqxhr, status, exception) {
+                alert("exception:  " + exception);
+            }
+        });
+
+        for(key in retrivedRecipeNameList){
+            if(key.indexOf("urn:uuid") >=0){
+                vocabQueryParamList.push(key);
+            }
+        }
+
+        for(var i=0; i<vocabQueryParamList.length; i++){
+            if(i === 0){
+                $('#recipeList1').
+                            replaceWith("<div><a onClick='retrieveRecipe(1)'>" + vocabQueryParamList[i] + "</a></div>");
+            } else if(i === 1){
+                document.getElementById('recipeList2').innerHTML="<div><a onClick='retrieveRecipe(2)'>" + vocabQueryParamList[i] + "</a></div>";
+            } else if(i === 2){
+                document.getElementById('recipeList3').innerHTML="<div><a onClick='retrieveRecipe(3)'>" + vocabQueryParamList[i] + "</a></div>";
+            }
+        }
+
+    } else if (document.getElementById("retriveCap").checked) {
         console.log("entered store TD "); 
        
        var cap = $('#capQuery').val();
@@ -318,26 +485,7 @@ function onSubmit() {
 
         }
        });
-       
-       
     
-    } else if (document.getElementById("retriveRec").checked) {
-
-        $.getJSON(TDURL, function (data) {
-            let resultset = "<div style='margin-top: 20px;' id='resultList'>";
-            for (resource in data) {
-                if (!(data[resource].hasOwnProperty('@type') && data[resource]['@type'][0] === 'Thing')) {
-                    recipesToBeimported[resource] = data[resource];
-                    resultset = resultset.concat('<input type="checkbox" name="' +
-                            resource + '" value="' + resource + '" onclick = onClickCandiateFlow(this) \n\
-                            style="margin-bottom:15px">'
-                            + data[resource]["@graph"][0]["label"]) + '</input><br/>';
-                }
-            }
-            resultset = resultset.concat("<button id='importBtn' onclick=importRecipe()>Import</button>")
-            resultset = resultset.concat("</div>")
-            $('#resultList').replaceWith(resultset);
-        });
     } 
 }
 
