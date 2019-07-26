@@ -387,17 +387,13 @@ function discoverMatches() {
     }
 
     $.getJSON('checkStatus', function (data) {
-        if (data.length > 0) {
+        console.log("data: ", data);
              $('#TDURLStatus').replaceWith('<label id="TDURLStatus" style="color:red"></label>');
             if ($('#directoryURL').val() === "") {
                 $('#TDURLStatus').replaceWith('<label id="TDURLStatus" style="color:red">Error : TD URL is empty</label>');
             } else {
                 serviceCallHttp(RED.workspaces.active(), noderedFlowAPIURL);
             }
-        } else {
-            $('#TDURLStatus').replaceWith('<label id="TDURLStatus" style="color:red">\n\
-Error : TD Web Directory is not running</label>');
-        }
     });
 }
 
