@@ -7,5 +7,8 @@
         "nodes": {
             "Thermostat": "Thermostat.js"
         }
+    },
+    "dependencies": {
+        "node-red-contrib-coap": "^0.3.0"
     }
 }
