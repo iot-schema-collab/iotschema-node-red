@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "undefined",
   "main": "TemperatureUnitConvertor.js",
-  "node-red" : {
+  "node-red": {
     "nodes": {
       "TemperatureUnitConvertor": "TemperatureUnitConvertor.js"
     }
+  },
+  "dependencies": {
+    "request": "^2.88.0"
   }
 }
