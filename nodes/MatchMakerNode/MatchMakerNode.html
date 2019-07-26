@@ -1,0 +1,53 @@
+<script type="text/javascript">
+
+    (function () {
+        RED.nodes.registerType('MatchMakerNode', {
+            category: 'config',
+            defaults: {
+                name: {value: ""}
+            },
+            color: "#87a980",
+            inputs: 0,
+            outputs: 0,
+            icon: "watch.png",
+            align: "right",
+
+            onpaletteadd: function () {
+                $.getScript('MatchMakerNode/js/PresentResults.js');
+                $.getScript('MatchMakerNode/js/utils.js');
+
+                RED.sidebar.addTab({
+                    id: "MatchMakerNode",
+                    label: "Match Maker",
+                    name: "MatchMakerNode",
+                    enableOnEdit: true,
+                    pinned: true,
+                    iconClass: "fa fa-search",
+                    content: "<html><div id='Configurations'></div><div \n\
+                                id='MatchMakingResults'></div></html>",
+                    onchange: function () {
+                        content = "Upd"
+                    }
+                });
+
+                RED.actions.add("core:show-MatchMaker-tab", function () {
+                    RED.sidebar.show('MatchMaker');
+                });
+
+                RED.events.on("deploy", function (event) {
+                    $('#Configurations').
+                            replaceWith(renderDeployOption(RED.workspaces.active()));
+                    validateRecipeFlow();
+                });
+
+                RED.events.on("workspace:change", function (event) {
+                    $('#Configurations').
+                            replaceWith("<div id='Configurations'></div>");
+                    $('#MatchMakingResults').
+                            replaceWith("<div id='MatchMakingResults'></div>");
+
+                });
+            },
+        });
+    })();
+</script>

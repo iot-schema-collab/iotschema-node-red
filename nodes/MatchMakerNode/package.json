@@ -1,0 +1,15 @@
+{
+    "name": "MatchMakerNode",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "MatchMakerNode.js",
+    "node-red": {
+        "nodes": {
+            "MatchMakerNode": "MatchMakerNode.js"
+        }
+    },
+    "dependencies": {
+        "request": "^2.88.0",
+        "node-cmd": "3.0.0"
+    }
+}
