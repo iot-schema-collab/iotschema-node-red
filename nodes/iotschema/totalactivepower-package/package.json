@@ -1,0 +1,11 @@
+{
+    "name": "totalactivepower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "totalactivepower.js",
+    "node-red" : {
+        "nodes": {
+        "totalactivepower": "totalactivepower.js"
+        }
+    }
+}

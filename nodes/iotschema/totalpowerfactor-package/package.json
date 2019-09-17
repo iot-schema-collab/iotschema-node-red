@@ -1,0 +1,11 @@
+{
+    "name": "totalpowerfactor-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "totalpowerfactor.js",
+    "node-red" : {
+        "nodes": {
+        "totalpowerfactor": "totalpowerfactor.js"
+        }
+    }
+}

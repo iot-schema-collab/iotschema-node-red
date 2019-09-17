@@ -1,0 +1,11 @@
+{
+    "name": "phasetoneutralvoltagec-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "phasetoneutralvoltagec.js",
+    "node-red" : {
+        "nodes": {
+        "phasetoneutralvoltagec": "phasetoneutralvoltagec.js"
+        }
+    }
+}

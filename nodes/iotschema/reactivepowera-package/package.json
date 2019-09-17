@@ -1,0 +1,11 @@
+{
+    "name": "reactivepowera-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "reactivepowera.js",
+    "node-red" : {
+        "nodes": {
+        "reactivepowera": "reactivepowera.js"
+        }
+    }
+}

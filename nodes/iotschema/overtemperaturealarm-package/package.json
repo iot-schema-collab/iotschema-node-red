@@ -1,0 +1,11 @@
+{
+    "name": "overtemperaturealarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "overtemperaturealarm.js",
+    "node-red" : {
+        "nodes": {
+        "overtemperaturealarm": "overtemperaturealarm.js"
+        }
+    }
+}

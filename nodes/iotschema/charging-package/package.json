@@ -1,0 +1,11 @@
+{
+    "name": "charging-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "charging.js",
+    "node-red" : {
+        "nodes": {
+        "charging": "charging.js"
+        }
+    }
+}

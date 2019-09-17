@@ -1,0 +1,11 @@
+{
+    "name": "overpressurealarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "overpressurealarm.js",
+    "node-red" : {
+        "nodes": {
+        "overpressurealarm": "overpressurealarm.js"
+        }
+    }
+}

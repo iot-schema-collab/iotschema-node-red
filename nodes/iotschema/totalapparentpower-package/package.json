@@ -1,0 +1,11 @@
+{
+    "name": "totalapparentpower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "totalapparentpower.js",
+    "node-red" : {
+        "nodes": {
+        "totalapparentpower": "totalapparentpower.js"
+        }
+    }
+}

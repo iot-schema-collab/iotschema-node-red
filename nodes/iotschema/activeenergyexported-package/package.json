@@ -1,0 +1,11 @@
+{
+    "name": "activeenergyexported-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "activeenergyexported.js",
+    "node-red" : {
+        "nodes": {
+        "activeenergyexported": "activeenergyexported.js"
+        }
+    }
+}

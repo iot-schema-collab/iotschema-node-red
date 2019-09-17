@@ -1,0 +1,11 @@
+{
+    "name": "electriccurrentb-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "electriccurrentb.js",
+    "node-red" : {
+        "nodes": {
+        "electriccurrentb": "electriccurrentb.js"
+        }
+    }
+}

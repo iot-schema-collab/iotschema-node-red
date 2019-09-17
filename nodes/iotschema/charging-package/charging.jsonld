@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "iotsh:ChargingShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub736bL14C1"
+          },
+          {
+            "@id": "_:ub736bL19C1"
+          },
+          {
+            "@id": "_:ub736bL24C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:Charging"
+      }
+    },
+    {
+      "@id": "_:ub736bL24C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub736bL5C1",
+      "sh:property": {
+        "@id": "_:ub736bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub736bL19C1",
+      "sh:property": {
+        "@id": "_:ub736bL19C14"
+      }
+    },
+    {
+      "@id": "iotsh:ChargingStatusDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub736bL5C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ChargingStatusData"
+      }
+    },
+    {
+      "@id": "_:ub736bL14C1",
+      "sh:property": {
+        "@id": "_:ub736bL14C15"
+      }
+    },
+    {
+      "@id": "_:ub736bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub736bL19C14",
+      "sh:hasValue": true,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub736bL14C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:ChargingStatusData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub736bL24C1",
+      "sh:property": {
+        "@id": "_:ub736bL24C14"
+      }
+    }
+  ]
+}

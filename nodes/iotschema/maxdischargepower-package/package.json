@@ -1,0 +1,11 @@
+{
+    "name": "maxdischargepower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "maxdischargepower.js",
+    "node-red" : {
+        "nodes": {
+        "maxdischargepower": "maxdischargepower.js"
+        }
+    }
+}

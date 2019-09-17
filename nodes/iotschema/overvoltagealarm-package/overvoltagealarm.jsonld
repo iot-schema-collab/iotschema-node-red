@@ -1,0 +1,167 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub798bL20C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:FemtoVolt"
+          },
+          {
+            "@id": "iot:GigaVolt"
+          },
+          {
+            "@id": "iot:KiloVolt"
+          },
+          {
+            "@id": "iot:MegaVolt"
+          },
+          {
+            "@id": "iot:MicroVolt"
+          },
+          {
+            "@id": "iot:MilliVolt"
+          },
+          {
+            "@id": "iot:NanoVolt"
+          },
+          {
+            "@id": "iot:PicoVolt"
+          },
+          {
+            "@id": "iot:TeraVolt"
+          },
+          {
+            "@id": "iot:Volt"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub798bL15C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub798bL10C1",
+      "sh:property": {
+        "@id": "_:ub798bL10C16"
+      }
+    },
+    {
+      "@id": "_:ub798bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub798bL5C1",
+      "sh:property": {
+        "@id": "_:ub798bL5C15"
+      }
+    },
+    {
+      "@id": "iotsh:VoltageDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub798bL5C1"
+          },
+          {
+            "@id": "_:ub798bL10C1"
+          },
+          {
+            "@id": "_:ub798bL15C1"
+          },
+          {
+            "@id": "_:ub798bL20C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:VoltageData"
+      }
+    },
+    {
+      "@id": "_:ub798bL20C1",
+      "sh:property": {
+        "@id": "_:ub798bL20C15"
+      }
+    },
+    {
+      "@id": "_:ub798bL10C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "iotsh:OverVoltageAlarmShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub798bL29C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:OverVoltageAlarm"
+      }
+    },
+    {
+      "@id": "_:ub798bL15C1",
+      "sh:property": {
+        "@id": "_:ub798bL15C16"
+      }
+    },
+    {
+      "@id": "_:ub798bL29C1",
+      "sh:property": {
+        "@id": "_:ub798bL29C15"
+      }
+    },
+    {
+      "@id": "_:ub798bL29C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:VoltageData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    }
+  ]
+}

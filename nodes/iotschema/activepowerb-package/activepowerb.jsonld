@@ -1,0 +1,209 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub708bL20C1",
+      "sh:property": {
+        "@id": "_:ub708bL20C15"
+      }
+    },
+    {
+      "@id": "_:ub708bL10C1",
+      "sh:property": {
+        "@id": "_:ub708bL10C16"
+      }
+    },
+    {
+      "@id": "iotsh:ActivePowerDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub708bL5C1"
+          },
+          {
+            "@id": "_:ub708bL10C1"
+          },
+          {
+            "@id": "_:ub708bL15C1"
+          },
+          {
+            "@id": "_:ub708bL20C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ActivePowerData"
+      }
+    },
+    {
+      "@id": "iotsh:ActivePowerBShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub708bL29C1"
+          },
+          {
+            "@id": "_:ub708bL34C1"
+          },
+          {
+            "@id": "_:ub708bL39C1"
+          },
+          {
+            "@id": "_:ub708bL43C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ActivePowerB"
+      }
+    },
+    {
+      "@id": "_:ub708bL29C1",
+      "sh:property": {
+        "@id": "_:ub708bL29C15"
+      }
+    },
+    {
+      "@id": "_:ub708bL20C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:GigaWatt"
+          },
+          {
+            "@id": "iot:KiloWatt"
+          },
+          {
+            "@id": "iot:MegaWatt"
+          },
+          {
+            "@id": "iot:Watt"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub708bL15C1",
+      "sh:property": {
+        "@id": "_:ub708bL15C16"
+      }
+    },
+    {
+      "@id": "_:ub708bL5C1",
+      "sh:property": {
+        "@id": "_:ub708bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub708bL43C1",
+      "sh:property": {
+        "@id": "_:ub708bL43C14"
+      }
+    },
+    {
+      "@id": "_:ub708bL40C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub708bL39C1",
+      "sh:not": {
+        "@id": "_:ub708bL39C10"
+      }
+    },
+    {
+      "@id": "_:ub708bL39C10",
+      "sh:property": {
+        "@id": "_:ub708bL40C13"
+      }
+    },
+    {
+      "@id": "_:ub708bL34C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub708bL34C1",
+      "sh:property": {
+        "@id": "_:ub708bL34C14"
+      }
+    },
+    {
+      "@id": "_:ub708bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub708bL43C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub708bL15C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub708bL10C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub708bL29C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:ActivePowerData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    }
+  ]
+}

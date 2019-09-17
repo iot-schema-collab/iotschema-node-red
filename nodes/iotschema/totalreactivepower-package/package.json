@@ -1,0 +1,11 @@
+{
+    "name": "totalreactivepower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "totalreactivepower.js",
+    "node-red" : {
+        "nodes": {
+        "totalreactivepower": "totalreactivepower.js"
+        }
+    }
+}

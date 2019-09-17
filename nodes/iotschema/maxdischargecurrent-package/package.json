@@ -1,0 +1,11 @@
+{
+    "name": "maxdischargecurrent-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "maxdischargecurrent.js",
+    "node-red" : {
+        "nodes": {
+        "maxdischargecurrent": "maxdischargecurrent.js"
+        }
+    }
+}

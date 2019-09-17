@@ -1,0 +1,11 @@
+{
+    "name": "chargebattery-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "chargebattery.js",
+    "node-red" : {
+        "nodes": {
+        "chargebattery": "chargebattery.js"
+        }
+    }
+}

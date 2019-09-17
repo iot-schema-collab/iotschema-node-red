@@ -1,0 +1,11 @@
+{
+    "name": "reactivepowerb-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "reactivepowerb.js",
+    "node-red" : {
+        "nodes": {
+        "reactivepowerb": "reactivepowerb.js"
+        }
+    }
+}

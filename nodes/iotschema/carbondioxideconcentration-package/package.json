@@ -1,0 +1,11 @@
+{
+    "name": "carbondioxideconcentration-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "carbondioxideconcentration.js",
+    "node-red" : {
+        "nodes": {
+        "carbondioxideconcentration": "carbondioxideconcentration.js"
+        }
+    }
+}

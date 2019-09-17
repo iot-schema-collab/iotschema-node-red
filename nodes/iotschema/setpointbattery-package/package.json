@@ -1,0 +1,11 @@
+{
+    "name": "setpointbattery-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "setpointbattery.js",
+    "node-red" : {
+        "nodes": {
+        "setpointbattery": "setpointbattery.js"
+        }
+    }
+}

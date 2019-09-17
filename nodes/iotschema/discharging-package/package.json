@@ -1,0 +1,11 @@
+{
+    "name": "discharging-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "discharging.js",
+    "node-red" : {
+        "nodes": {
+        "discharging": "discharging.js"
+        }
+    }
+}

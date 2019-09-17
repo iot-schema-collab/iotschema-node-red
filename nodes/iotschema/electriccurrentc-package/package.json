@@ -1,0 +1,11 @@
+{
+    "name": "electriccurrentc-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "electriccurrentc.js",
+    "node-red" : {
+        "nodes": {
+        "electriccurrentc": "electriccurrentc.js"
+        }
+    }
+}

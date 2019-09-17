@@ -1,0 +1,11 @@
+{
+    "name": "apparentenergy-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "apparentenergy.js",
+    "node-red" : {
+        "nodes": {
+        "apparentenergy": "apparentenergy.js"
+        }
+    }
+}

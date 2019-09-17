@@ -1,0 +1,11 @@
+{
+    "name": "apparentpowera-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "apparentpowera.js",
+    "node-red" : {
+        "nodes": {
+        "apparentpowera": "apparentpowera.js"
+        }
+    }
+}

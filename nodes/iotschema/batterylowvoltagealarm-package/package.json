@@ -1,0 +1,11 @@
+{
+    "name": "batterylowvoltagealarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "batterylowvoltagealarm.js",
+    "node-red" : {
+        "nodes": {
+        "batterylowvoltagealarm": "batterylowvoltagealarm.js"
+        }
+    }
+}

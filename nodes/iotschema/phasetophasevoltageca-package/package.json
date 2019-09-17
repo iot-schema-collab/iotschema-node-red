@@ -1,0 +1,11 @@
+{
+    "name": "phasetophasevoltageca-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "phasetophasevoltageca.js",
+    "node-red" : {
+        "nodes": {
+        "phasetophasevoltageca": "phasetophasevoltageca.js"
+        }
+    }
+}
