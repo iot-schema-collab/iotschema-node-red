@@ -1,0 +1,11 @@
+{
+    "name": "powerfactorc-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "powerfactorc.js",
+    "node-red" : {
+        "nodes": {
+        "powerfactorc": "powerfactorc.js"
+        }
+    }
+}

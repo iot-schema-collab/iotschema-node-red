@@ -1,0 +1,11 @@
+{
+    "name": "dischargebattery-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "dischargebattery.js",
+    "node-red" : {
+        "nodes": {
+        "dischargebattery": "dischargebattery.js"
+        }
+    }
+}

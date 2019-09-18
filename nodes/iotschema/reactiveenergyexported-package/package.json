@@ -1,0 +1,11 @@
+{
+    "name": "reactiveenergyexported-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "reactiveenergyexported.js",
+    "node-red" : {
+        "nodes": {
+        "reactiveenergyexported": "reactiveenergyexported.js"
+        }
+    }
+}

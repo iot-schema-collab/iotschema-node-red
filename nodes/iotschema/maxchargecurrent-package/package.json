@@ -1,0 +1,11 @@
+{
+    "name": "maxchargecurrent-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "maxchargecurrent.js",
+    "node-red" : {
+        "nodes": {
+        "maxchargecurrent": "maxchargecurrent.js"
+        }
+    }
+}

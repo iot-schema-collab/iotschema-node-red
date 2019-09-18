@@ -1,0 +1,11 @@
+{
+    "name": "maxchargepower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "maxchargepower.js",
+    "node-red" : {
+        "nodes": {
+        "maxchargepower": "maxchargepower.js"
+        }
+    }
+}

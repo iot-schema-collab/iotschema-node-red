@@ -1,0 +1,11 @@
+{
+    "name": "averageelectriccurrent-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "averageelectriccurrent.js",
+    "node-red" : {
+        "nodes": {
+        "averageelectriccurrent": "averageelectriccurrent.js"
+        }
+    }
+}

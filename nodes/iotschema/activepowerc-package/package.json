@@ -1,0 +1,11 @@
+{
+    "name": "activepowerc-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "activepowerc.js",
+    "node-red" : {
+        "nodes": {
+        "activepowerc": "activepowerc.js"
+        }
+    }
+}

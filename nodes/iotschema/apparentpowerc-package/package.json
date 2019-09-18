@@ -1,0 +1,11 @@
+{
+    "name": "apparentpowerc-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "apparentpowerc.js",
+    "node-red" : {
+        "nodes": {
+        "apparentpowerc": "apparentpowerc.js"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "powerfactora-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "powerfactora.js",
+    "node-red" : {
+        "nodes": {
+        "powerfactora": "powerfactora.js"
+        }
+    }
+}

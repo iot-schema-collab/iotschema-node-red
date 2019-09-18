@@ -1,0 +1,11 @@
+{
+    "name": "lowbattery-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "lowbattery.js",
+    "node-red" : {
+        "nodes": {
+        "lowbattery": "lowbattery.js"
+        }
+    }
+}

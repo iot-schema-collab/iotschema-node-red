@@ -1,0 +1,184 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "iotsh:CRateDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub734bL5C1"
+          },
+          {
+            "@id": "_:ub734bL10C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:CRateData"
+      }
+    },
+    {
+      "@id": "_:ub734bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub734bL5C1",
+      "sh:property": {
+        "@id": "_:ub734bL5C15"
+      }
+    },
+    {
+      "@id": "iotsh:ChargeBatteryShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub734bL33C1"
+          },
+          {
+            "@id": "_:ub734bL38C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ChargeBattery"
+      }
+    },
+    {
+      "@id": "_:ub734bL19C1",
+      "sh:property": {
+        "@id": "_:ub734bL19C15"
+      }
+    },
+    {
+      "@id": "_:ub734bL24C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:GigaWatt"
+          },
+          {
+            "@id": "iot:KiloWatt"
+          },
+          {
+            "@id": "iot:MegaWatt"
+          },
+          {
+            "@id": "iot:Watt"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub734bL10C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:ReciprocalHour"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub734bL24C1",
+      "sh:property": {
+        "@id": "_:ub734bL24C15"
+      }
+    },
+    {
+      "@id": "_:ub734bL33C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:CRateData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub734bL19C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub734bL10C1",
+      "sh:property": {
+        "@id": "_:ub734bL10C15"
+      }
+    },
+    {
+      "@id": "_:ub734bL33C1",
+      "sh:property": {
+        "@id": "_:ub734bL33C14"
+      }
+    },
+    {
+      "@id": "_:ub734bL38C1",
+      "sh:property": {
+        "@id": "_:ub734bL38C14"
+      }
+    },
+    {
+      "@id": "iotsh:ERateDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub734bL19C1"
+          },
+          {
+            "@id": "_:ub734bL24C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ERateData"
+      }
+    },
+    {
+      "@id": "_:ub734bL38C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:ERateData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    }
+  ]
+}

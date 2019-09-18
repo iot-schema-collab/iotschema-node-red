@@ -1,0 +1,160 @@
+<script type="text/javascript">
+    RED.nodes.registerType('averageelectriccurrent',{
+        category: 'iotschemaorg',
+        color: '#00A4B4',
+        defaults: {
+        
+            
+            propertyType: {value:""},
+        
+            
+            minValue: {value:""},
+        
+            
+            maxValue: {value:""},
+        
+            
+            unitCode: {value:""},
+        
+        observable: {value:""},
+    name: {value:""},
+    iptype: {value:"iot:AverageElectricCurrent"},
+    capability: {value:""},
+    foitype: {value:""},
+    foi: {value:""},
+    operation:{value:""}
+    },
+    inputs:1,
+    outputs:2,
+    icon: "file.png",
+            label: function() {
+        return this.name||"averageelectriccurrent";
+    }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="averageelectriccurrent">
+	 <div class="form-row">
+	     <label for="node-input-name" style="width:40%"><i class="icon-tag"></i> Name:</label>
+         <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-iptype"  style="width:40%"><i class="icon-tag"></i> Interaction Pattern Type:</label>
+         <input type="text" id="node-input-iptype" style="width:50%" readonly/>
+     </div>
+      <div class="form-row">
+	     <label for="node-input-capability"  style="width:40%"><i class="icon-tag"></i> Capability:</label>
+         <input type="text" id="node-input-capability" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foitype"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest Type:</label>
+         <input type="text" id="node-input-foitype" style="width:50%" placeholder=""/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foi"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest:</label>
+         <input type="text" id="node-input-foi" style="width:50%" placeholder=""/>
+     </div>
+
+     
+    <div class="form-row">
+        <label for="node-input-propertyType"  style="width:40%"><i class="icon-tag"></i> PropertyType:</label>
+        <input type="text" id="node-input-propertyType" style="width:50%" placeholder="float" disabled><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-minValue"  style="width:40%"><i class="icon-tag"></i> MinValue:</label>
+         <input type="text" id="node-input-minValue" style="width:50%" placeholder="float"><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-maxValue"  style="width:40%"><i class="icon-tag"></i> MaxValue:</label>
+         <input type="text" id="node-input-maxValue" style="width:50%" placeholder="float"><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-unitCode"  style="width:40%"><i class="icon-tag"></i> UnitCode:</label>
+         <select id="node-input-unitCode" style="width:30%">
+             <option value="iot:Ampere">Ampere</option>
+             <option value="iot:FemtoAmpere">FemtoAmpere</option>
+             <option value="iot:GigaAmpere">GigaAmpere</option>
+             <option value="iot:KiloAmpere">KiloAmpere</option>
+             <option value="iot:MegaAmpere">MegaAmpere</option>
+             <option value="iot:MicroAmpere">MicroAmpere</option>
+             <option value="iot:MilliAmpere">MilliAmpere</option>
+             <option value="iot:NanoAmpere">NanoAmpere</option>
+             <option value="iot:PicoAmpere">PicoAmpere</option>
+             <option value="iot:TeraAmpere">TeraAmpere</option>
+         </select><br/>
+    </div>
+
+     <div class="form-row">
+         <label for="node-input-observable"  style="width:40%"><i class="icon-tag"></i> Observable:</label>
+         <select id="node-input-observable" style="width:30%">
+            <option value="true">True</option>
+            <option value="false">False</option>
+         </select>
+     </div>
+     <hr/>
+     <b>Optional</b><br/>
+     <div class="form-row">
+	     <label for="node-input-operation"  style="width:40%"><i class="icon-tag"></i> Operation:</label>
+         <select id="node-input-operation" style="width:30%">
+            <option value="create">Create</option>
+            <option value="retrieve">Retrieve</option>
+	        <option value="update">Update</option>
+            <option value="delete">Delete</option>
+            <option value="observe">Observe</option>
+         </select>
+     </div>
+</script>
+
+<script type="text/x-red" data-help-name="averageelectriccurrent">
+	<p>AverageElectricCurrent
+	    is a
+            Property.
+
+                It provides output
+                    which
+                    is
+                    <code>ElectricCurrentData</code> .</p>
+
+                <p><br/>
+                    
+                    <code>ElectricCurrentData</code> can be configured with
+                        <code>propertyType</code>
+                        <code>minValue</code>
+                        <code>maxValue</code>
+                        <code>unitCode</code>
+                      <br/><br/>
+                     <h4><b>Configurations</b></h4>
+                        <dl class="message-properties">
+                        <dt>PropertyType <span class="property-type">
+                            Float
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>MinValue <span class="property-type">
+                            Float
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>MaxValue <span class="property-type">
+                            Float
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>UnitCode <span class="property-type">
+                            
+
+                             <ul><li>Ampere</li><li>FemtoAmpere</li><li>GigaAmpere</li><li>KiloAmpere</li><li>MegaAmpere</li><li>MicroAmpere</li><li>MilliAmpere</li><li>NanoAmpere</li><li>PicoAmpere</li><li>TeraAmpere</li></ul>
+                        </span></dt>
+                        </dl>
+                    </dl>
+                    
+</script>

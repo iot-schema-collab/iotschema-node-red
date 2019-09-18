@@ -1,0 +1,11 @@
+{
+    "name": "overvoltagealarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "overvoltagealarm.js",
+    "node-red" : {
+        "nodes": {
+        "overvoltagealarm": "overvoltagealarm.js"
+        }
+    }
+}

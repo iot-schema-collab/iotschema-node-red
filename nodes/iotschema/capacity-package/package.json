@@ -1,0 +1,11 @@
+{
+    "name": "capacity-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "capacity.js",
+    "node-red" : {
+        "nodes": {
+        "capacity": "capacity.js"
+        }
+    }
+}

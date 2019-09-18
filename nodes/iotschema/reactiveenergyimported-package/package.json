@@ -1,0 +1,11 @@
+{
+    "name": "reactiveenergyimported-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "reactiveenergyimported.js",
+    "node-red" : {
+        "nodes": {
+        "reactiveenergyimported": "reactiveenergyimported.js"
+        }
+    }
+}

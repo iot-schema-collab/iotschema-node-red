@@ -1,0 +1,11 @@
+{
+    "name": "reactivepowerc-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "reactivepowerc.js",
+    "node-red" : {
+        "nodes": {
+        "reactivepowerc": "reactivepowerc.js"
+        }
+    }
+}

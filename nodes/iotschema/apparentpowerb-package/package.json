@@ -1,0 +1,11 @@
+{
+    "name": "apparentpowerb-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "apparentpowerb.js",
+    "node-red" : {
+        "nodes": {
+        "apparentpowerb": "apparentpowerb.js"
+        }
+    }
+}

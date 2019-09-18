@@ -1,0 +1,11 @@
+{
+    "name": "powerfactorb-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "powerfactorb.js",
+    "node-red" : {
+        "nodes": {
+        "powerfactorb": "powerfactorb.js"
+        }
+    }
+}

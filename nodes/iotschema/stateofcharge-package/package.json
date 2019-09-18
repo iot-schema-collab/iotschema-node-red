@@ -1,0 +1,11 @@
+{
+    "name": "stateofcharge-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "stateofcharge.js",
+    "node-red" : {
+        "nodes": {
+        "stateofcharge": "stateofcharge.js"
+        }
+    }
+}

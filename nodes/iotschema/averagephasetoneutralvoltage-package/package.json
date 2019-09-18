@@ -1,0 +1,11 @@
+{
+    "name": "averagephasetoneutralvoltage-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "averagephasetoneutralvoltage.js",
+    "node-red" : {
+        "nodes": {
+        "averagephasetoneutralvoltage": "averagephasetoneutralvoltage.js"
+        }
+    }
+}

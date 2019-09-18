@@ -1,0 +1,11 @@
+{
+    "name": "phasetophasevoltageab-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "phasetophasevoltageab.js",
+    "node-red" : {
+        "nodes": {
+        "phasetophasevoltageab": "phasetophasevoltageab.js"
+        }
+    }
+}

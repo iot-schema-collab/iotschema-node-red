@@ -1,0 +1,11 @@
+{
+    "name": "linefrequency-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "linefrequency.js",
+    "node-red" : {
+        "nodes": {
+        "linefrequency": "linefrequency.js"
+        }
+    }
+}

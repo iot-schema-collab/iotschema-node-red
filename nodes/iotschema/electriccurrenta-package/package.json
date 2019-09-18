@@ -1,0 +1,11 @@
+{
+    "name": "electriccurrenta-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "electriccurrenta.js",
+    "node-red" : {
+        "nodes": {
+        "electriccurrenta": "electriccurrenta.js"
+        }
+    }
+}

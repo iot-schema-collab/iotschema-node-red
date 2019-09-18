@@ -1,0 +1,11 @@
+{
+    "name": "activepowera-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "activepowera.js",
+    "node-red" : {
+        "nodes": {
+        "activepowera": "activepowera.js"
+        }
+    }
+}

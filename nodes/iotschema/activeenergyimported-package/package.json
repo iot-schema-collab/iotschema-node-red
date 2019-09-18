@@ -1,0 +1,11 @@
+{
+    "name": "activeenergyimported-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "activeenergyimported.js",
+    "node-red" : {
+        "nodes": {
+        "activeenergyimported": "activeenergyimported.js"
+        }
+    }
+}

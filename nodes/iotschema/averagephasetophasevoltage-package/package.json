@@ -1,0 +1,11 @@
+{
+    "name": "averagephasetophasevoltage-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "averagephasetophasevoltage.js",
+    "node-red" : {
+        "nodes": {
+        "averagephasetophasevoltage": "averagephasetophasevoltage.js"
+        }
+    }
+}

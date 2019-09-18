@@ -1,0 +1,11 @@
+{
+    "name": "overelectriccurrentalarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "overelectriccurrentalarm.js",
+    "node-red" : {
+        "nodes": {
+        "overelectriccurrentalarm": "overelectriccurrentalarm.js"
+        }
+    }
+}

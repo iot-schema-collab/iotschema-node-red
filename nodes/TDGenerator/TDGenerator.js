@@ -137,6 +137,10 @@ function postprocessTD(td, iphrefs) {
         }
         if (td["actions"]) {
             var p = td["actions"];
+            if(p.length === undefined){
+                delete td["actions"];
+            }
+            else {
             for (var x in p) {
                 if (td["actions"][x]["@type"] === undefined || td["actions"][x]["@type"].length == 0) {
                     delete td["actions"][x];
@@ -148,8 +152,13 @@ function postprocessTD(td, iphrefs) {
                 }
             }
         }
+    }
         if (td["events"]) {
             var p = td["events"];
+            if(p.length === undefined){
+                delete td["events"];
+            }
+            else {
             for (var x in p) {
                 if (td["events"][x]["@type"] === undefined || td["events"][x]["@type"].length == 0) {
                     delete td["events"][x];
@@ -161,6 +170,7 @@ function postprocessTD(td, iphrefs) {
                 }
             }
         }
+    }
     }
 }
 

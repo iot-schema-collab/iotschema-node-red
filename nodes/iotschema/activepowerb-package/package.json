@@ -1,0 +1,11 @@
+{
+    "name": "activepowerb-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "activepowerb.js",
+    "node-red" : {
+        "nodes": {
+        "activepowerb": "activepowerb.js"
+        }
+    }
+}

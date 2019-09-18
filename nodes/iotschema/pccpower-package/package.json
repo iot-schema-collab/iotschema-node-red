@@ -1,0 +1,11 @@
+{
+    "name": "pccpower-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "pccpower.js",
+    "node-red" : {
+        "nodes": {
+        "pccpower": "pccpower.js"
+        }
+    }
+}

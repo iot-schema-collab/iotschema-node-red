@@ -1,0 +1,209 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub833bL15C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "iotsh:ReactivePowerBShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub833bL29C1"
+          },
+          {
+            "@id": "_:ub833bL34C1"
+          },
+          {
+            "@id": "_:ub833bL39C1"
+          },
+          {
+            "@id": "_:ub833bL43C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ReactivePowerB"
+      }
+    },
+    {
+      "@id": "_:ub833bL29C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:ReactivePowerData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub833bL15C1",
+      "sh:property": {
+        "@id": "_:ub833bL15C16"
+      }
+    },
+    {
+      "@id": "iotsh:ReactivePowerDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub833bL5C1"
+          },
+          {
+            "@id": "_:ub833bL10C1"
+          },
+          {
+            "@id": "_:ub833bL15C1"
+          },
+          {
+            "@id": "_:ub833bL20C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:ReactivePowerData"
+      }
+    },
+    {
+      "@id": "_:ub833bL10C1",
+      "sh:property": {
+        "@id": "_:ub833bL10C16"
+      }
+    },
+    {
+      "@id": "_:ub833bL20C1",
+      "sh:property": {
+        "@id": "_:ub833bL20C15"
+      }
+    },
+    {
+      "@id": "_:ub833bL20C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:GigaVoltAmpereReactive"
+          },
+          {
+            "@id": "iot:KiloVoltAmpereReactive"
+          },
+          {
+            "@id": "iot:MegaVoltAmpereReactive"
+          },
+          {
+            "@id": "iot:VoltAmpereReactive"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub833bL43C1",
+      "sh:property": {
+        "@id": "_:ub833bL43C14"
+      }
+    },
+    {
+      "@id": "_:ub833bL39C1",
+      "sh:not": {
+        "@id": "_:ub833bL39C10"
+      }
+    },
+    {
+      "@id": "_:ub833bL39C10",
+      "sh:property": {
+        "@id": "_:ub833bL40C13"
+      }
+    },
+    {
+      "@id": "_:ub833bL5C1",
+      "sh:property": {
+        "@id": "_:ub833bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub833bL10C16",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub833bL29C1",
+      "sh:property": {
+        "@id": "_:ub833bL29C15"
+      }
+    },
+    {
+      "@id": "_:ub833bL34C1",
+      "sh:property": {
+        "@id": "_:ub833bL34C14"
+      }
+    },
+    {
+      "@id": "_:ub833bL34C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub833bL40C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub833bL43C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub833bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    }
+  ]
+}
