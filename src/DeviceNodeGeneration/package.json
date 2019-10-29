@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "dependencies": {
     "rimraf": "^2.6.2",
-    "handlebars": "4.0.11",
+    "handlebars": "4.5.1",
     "child-process-promise": "2.2.1",
     "fs": "^0.0.1-security",
     "yargs": "12.0.2"
