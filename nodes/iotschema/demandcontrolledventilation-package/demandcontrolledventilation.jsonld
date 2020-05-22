@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "iotsh:DemandControlledVentilationShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub246bL5C1"
+          },
+          {
+            "@id": "_:ub246bL10C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:DemandControlledVentilation"
+      }
+    },
+    {
+      "@id": "_:ub246bL5C14",
+      "sh:hasValue": true,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub246bL10C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub246bL5C1",
+      "sh:property": {
+        "@id": "_:ub246bL5C14"
+      }
+    },
+    {
+      "@id": "_:ub246bL10C1",
+      "sh:property": {
+        "@id": "_:ub246bL10C14"
+      }
+    }
+  ]
+}

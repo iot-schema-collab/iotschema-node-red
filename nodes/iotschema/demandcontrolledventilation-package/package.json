@@ -1,0 +1,11 @@
+{
+    "name": "demandcontrolledventilation-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "demandcontrolledventilation.js",
+    "node-red" : {
+        "nodes": {
+        "demandcontrolledventilation": "demandcontrolledventilation.js"
+        }
+    }
+}
