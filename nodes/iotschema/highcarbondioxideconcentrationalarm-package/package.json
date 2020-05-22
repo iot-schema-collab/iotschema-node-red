@@ -1,0 +1,11 @@
+{
+    "name": "highcarbondioxideconcentrationalarm-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "highcarbondioxideconcentrationalarm.js",
+    "node-red" : {
+        "nodes": {
+        "highcarbondioxideconcentrationalarm": "highcarbondioxideconcentrationalarm.js"
+        }
+    }
+}

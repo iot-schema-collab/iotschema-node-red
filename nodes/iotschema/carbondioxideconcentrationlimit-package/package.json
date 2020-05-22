@@ -1,0 +1,11 @@
+{
+    "name": "carbondioxideconcentrationlimit-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "carbondioxideconcentrationlimit.js",
+    "node-red" : {
+        "nodes": {
+        "carbondioxideconcentrationlimit": "carbondioxideconcentrationlimit.js"
+        }
+    }
+}

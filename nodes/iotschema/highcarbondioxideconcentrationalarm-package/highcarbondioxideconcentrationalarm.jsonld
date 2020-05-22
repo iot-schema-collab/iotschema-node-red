@@ -1,0 +1,85 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub244bL11C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub244bL5C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub244bL10C1",
+      "sh:not": {
+        "@id": "_:ub244bL10C10"
+      }
+    },
+    {
+      "@id": "_:ub244bL14C1",
+      "sh:property": {
+        "@id": "_:ub244bL14C14"
+      }
+    },
+    {
+      "@id": "iotsh:HighCarbondioxideConcentrationAlarmShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub244bL5C1"
+          },
+          {
+            "@id": "_:ub244bL10C1"
+          },
+          {
+            "@id": "_:ub244bL14C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:HighCarbondioxideConcentrationAlarm"
+      }
+    },
+    {
+      "@id": "_:ub244bL14C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub244bL5C1",
+      "sh:property": {
+        "@id": "_:ub244bL5C14"
+      }
+    },
+    {
+      "@id": "_:ub244bL10C10",
+      "sh:property": {
+        "@id": "_:ub244bL11C13"
+      }
+    }
+  ]
+}

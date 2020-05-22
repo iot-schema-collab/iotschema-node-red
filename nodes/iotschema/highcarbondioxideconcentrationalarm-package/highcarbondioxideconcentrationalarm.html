@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    RED.nodes.registerType('highcarbondioxideconcentrationalarm',{
+        category: 'iotschemaorg',
+        color: '#00A4B4',
+        defaults: {
+        
+    name: {value:""},
+    iptype: {value:"iot:HighCarbondioxideConcentrationAlarm"},
+    capability: {value:""},
+    foitype: {value:""},
+    foi: {value:""},
+    operation:{value:""}
+    },
+    inputs:0,
+    outputs:2,
+    icon: "file.png",
+            label: function() {
+        return this.name||"highcarbondioxideconcentrationalarm";
+    }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="highcarbondioxideconcentrationalarm">
+	 <div class="form-row">
+	     <label for="node-input-name" style="width:40%"><i class="icon-tag"></i> Name:</label>
+         <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-iptype"  style="width:40%"><i class="icon-tag"></i> Interaction Pattern Type:</label>
+         <input type="text" id="node-input-iptype" style="width:50%" readonly/>
+     </div>
+      <div class="form-row">
+	     <label for="node-input-capability"  style="width:40%"><i class="icon-tag"></i> Capability:</label>
+         <input type="text" id="node-input-capability" style="width:50%"/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foitype"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest Type:</label>
+         <input type="text" id="node-input-foitype" style="width:50%" placeholder=""/>
+     </div>
+     <div class="form-row">
+	     <label for="node-input-foi"  style="width:40%"><i class="icon-tag"></i> Feature Of Interest:</label>
+         <input type="text" id="node-input-foi" style="width:50%" placeholder=""/>
+     </div>
+
+     
+     <div class="form-row">
+     </div>
+     <hr/>
+     <b>Optional</b><br/>
+     <div class="form-row">
+	     <label for="node-input-operation"  style="width:40%"><i class="icon-tag"></i> Operation:</label>
+         <select id="node-input-operation" style="width:30%">
+            <option value="observe">Observe</option>
+         </select>
+     </div>
+</script>
+
+<script type="text/x-red" data-help-name="highcarbondioxideconcentrationalarm">
+	<p>highcarbondioxideconcentrationalarm
+	    is a
+            Event.
+
+
+                <p><br/>
+</script>
