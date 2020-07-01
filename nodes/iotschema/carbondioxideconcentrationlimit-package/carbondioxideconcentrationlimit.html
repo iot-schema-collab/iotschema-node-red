@@ -4,6 +4,12 @@
         color: '#00A4B4',
         defaults: {
         
+            
+            propertyType: {value:""},
+        
+            
+            unitCode: {value:""},
+        
     name: {value:""},
     iptype: {value:"iot:CarbonDioxideConcentrationLimit"},
     capability: {value:""},
@@ -43,6 +49,19 @@
      </div>
 
      
+    <div class="form-row">
+        <label for="node-input-propertyType"  style="width:40%"><i class="icon-tag"></i> PropertyType:</label>
+        <input type="text" id="node-input-propertyType" style="width:50%" placeholder="integer" disabled><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-unitCode"  style="width:40%"><i class="icon-tag"></i> UnitCode:</label>
+         <select id="node-input-unitCode" style="width:30%">
+             <option value="iot:PartsPerMillion">PartsPerMillion</option>
+             <option value="iot:Percent">Percent</option>
+         </select><br/>
+    </div>
+
      <div class="form-row">
      </div>
      <hr/>
@@ -64,6 +83,32 @@
 	    is a
             Property.
 
+                It provides output
+                    which
+                    is
+                    <code>CarbonDioxideConcentrationLimitData</code> .</p>
 
                 <p><br/>
+                    
+                    <code>CarbonDioxideConcentrationLimitData</code> can be configured with
+                        <code>propertyType</code>
+                        <code>unitCode</code>
+                      <br/><br/>
+                     <h4><b>Configurations</b></h4>
+                        <dl class="message-properties">
+                        <dt>PropertyType <span class="property-type">
+                            Integer
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>UnitCode <span class="property-type">
+                            
+
+                             <ul><li>PartsPerMillion</li><li>Percent</li></ul>
+                        </span></dt>
+                        </dl>
+                    </dl>
+                    
 </script>

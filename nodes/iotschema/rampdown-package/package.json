@@ -1,0 +1,11 @@
+{
+    "name": "rampdown-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "rampdown.js",
+    "node-red" : {
+        "nodes": {
+        "rampdown": "rampdown.js"
+        }
+    }
+}

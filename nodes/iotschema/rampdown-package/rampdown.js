@@ -3,14 +3,14 @@
 let configInt = require('./ConfigAttrIntegrator.js');
 
 module.exports = function(RED) {
-    function demandcontrolledventilation(config) {
+    function rampdown(config) {
         RED.nodes.createNode(this, config);
         let node = this;
         let source;
         let output;
         let fs = require('fs');
         let path = require('path');
-        let shapePath = path.join(__dirname,"demandcontrolledventilation.jsonld");
+        let shapePath = path.join(__dirname,"rampdown.jsonld");
 
         
 
@@ -25,6 +25,8 @@ module.exports = function(RED) {
             configJ["configParams"]["FeatureOfInterestType"] = config.foitype;
             configJ["configParams"]["FeatureOfInterest"] = config.foi;
             configJ["configParams"]["unitCode"] =   config.unitCode
+            configJ["configParams"]["minValue"] =   config.minValue
+            configJ["configParams"]["maxValue"] =   config.maxValue
                         configJ["configParams"]["operation"] = config.operation;
             output = configInt.addConfigAttributes(source, configJ);
             let graph = [];
@@ -44,5 +46,5 @@ module.exports = function(RED) {
     });
 }
 
-    RED.nodes.registerType("demandcontrolledventilation", demandcontrolledventilation);
+    RED.nodes.registerType("rampdown", rampdown);
 };
