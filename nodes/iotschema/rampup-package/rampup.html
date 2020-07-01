@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('highcarbondioxideconcentrationalarm',{
+    RED.nodes.registerType('rampup',{
         category: 'iotschemaorg',
         color: '#00A4B4',
         defaults: {
@@ -10,8 +10,17 @@
             
             unitCode: {value:""},
         
+            
+            propertyType: {value:""},
+        
+            
+            minValue: {value:""},
+        
+            
+            maxValue: {value:""},
+        
     name: {value:""},
-    iptype: {value:"iot:HighCarbonDioxideConcentrationAlarm"},
+    iptype: {value:"iot:RampUp"},
     capability: {value:""},
     foitype: {value:""},
     foi: {value:""},
@@ -21,12 +30,12 @@
     outputs:2,
     icon: "file.png",
             label: function() {
-        return this.name||"highcarbondioxideconcentrationalarm";
+        return this.name||"rampup";
     }
     });
 </script>
 
-<script type="text/x-red" data-template-name="highcarbondioxideconcentrationalarm">
+<script type="text/x-red" data-template-name="rampup">
 	 <div class="form-row">
 	     <label for="node-input-name" style="width:40%"><i class="icon-tag"></i> Name:</label>
          <input type="text" id="node-input-name" placeholder="Name" style="width:50%"/>
@@ -57,9 +66,22 @@
     <div class="form-row">
 		 <label for="node-input-unitCode"  style="width:40%"><i class="icon-tag"></i> UnitCode:</label>
          <select id="node-input-unitCode" style="width:30%">
-             <option value="iot:PartsPerMillion">PartsPerMillion</option>
-             <option value="iot:Percent">Percent</option>
          </select><br/>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-propertyType"  style="width:40%"><i class="icon-tag"></i> PropertyType:</label>
+        <input type="text" id="node-input-propertyType" style="width:50%" placeholder="integer" disabled><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-minValue"  style="width:40%"><i class="icon-tag"></i> MinValue:</label>
+         <input type="text" id="node-input-minValue" style="width:50%" placeholder="integer"><br/>
+    </div>
+
+    <div class="form-row">
+		 <label for="node-input-maxValue"  style="width:40%"><i class="icon-tag"></i> MaxValue:</label>
+         <input type="text" id="node-input-maxValue" style="width:50%" placeholder="integer"><br/>
     </div>
 
      <div class="form-row">
@@ -78,19 +100,19 @@
      </div>
 </script>
 
-<script type="text/x-red" data-help-name="highcarbondioxideconcentrationalarm">
-	<p>HighCarbonDioxideConcentrationAlarm
+<script type="text/x-red" data-help-name="rampup">
+	<p>RampUp
 	    is a
             Property.
-
-                It provides output
+                It accepts input
+                    s
                     which
-                    is
-                    <code>CarbonDioxideConcentrationLimitData</code> .</p>
+                    <code>RampData</code> <code>RampTimeData</code> .
+
 
                 <p><br/>
                     
-                    <code>CarbonDioxideConcentrationLimitData</code> can be configured with
+                    <code>RampData</code> can be configured with
                         <code>propertyType</code>
                         <code>unitCode</code>
                       <br/><br/>
@@ -106,7 +128,37 @@
                         <dt>UnitCode <span class="property-type">
                             
 
-                             <ul><li>PartsPerMillion</li><li>Percent</li></ul>
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                    </dl>
+                    
+                    
+                    <code>RampTimeData</code> can be configured with
+                        <code>propertyType</code>
+                        <code>minValue</code>
+                        <code>maxValue</code>
+                      <br/><br/>
+                     <h4><b>Configurations</b></h4>
+                        <dl class="message-properties">
+                        <dt>PropertyType <span class="property-type">
+                            Integer
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>MinValue <span class="property-type">
+                            Integer
+
+                             <ul></ul>
+                        </span></dt>
+                        </dl>
+                        <dl class="message-properties">
+                        <dt>MaxValue <span class="property-type">
+                            Integer
+
+                             <ul></ul>
                         </span></dt>
                         </dl>
                     </dl>

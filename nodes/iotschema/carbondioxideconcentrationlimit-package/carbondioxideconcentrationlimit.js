@@ -24,6 +24,7 @@ module.exports = function(RED) {
             configJ["configParams"]["capability"] = config.capability;
             configJ["configParams"]["FeatureOfInterestType"] = config.foitype;
             configJ["configParams"]["FeatureOfInterest"] = config.foi;
+            configJ["configParams"]["unitCode"] =   config.unitCode
                         configJ["configParams"]["operation"] = config.operation;
             output = configInt.addConfigAttributes(source, configJ);
             let graph = [];

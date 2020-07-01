@@ -25,9 +25,7 @@ module.exports = function(RED) {
             configJ["configParams"]["FeatureOfInterestType"] = config.foitype;
             configJ["configParams"]["FeatureOfInterest"] = config.foi;
             configJ["configParams"]["unitCode"] =   config.unitCode
-            
-                configJ["configParams"]["observable"] = config.observable;
-            configJ["configParams"]["operation"] = config.operation;
+                        configJ["configParams"]["operation"] = config.operation;
             output = configInt.addConfigAttributes(source, configJ);
             let graph = [];
             graph = configInt.removeDuplicates(output["@graph"]);

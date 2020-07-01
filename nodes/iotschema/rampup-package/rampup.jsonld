@@ -1,0 +1,266 @@
+{
+  "@context": {
+    "dash": "http://datashapes.org/dash#",
+    "iot": "http://iotschema.org/",
+    "iotsh": "http://iotschema.org/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub77bL24C1",
+      "sh:property": {
+        "@id": "_:ub77bL24C16"
+      }
+    },
+    {
+      "@id": "_:ub77bL19C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub77bL10C15",
+      "sh:in": {
+        "@list": []
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
+      "@id": "_:ub77bL38C1",
+      "sh:property": {
+        "@id": "_:ub77bL38C15"
+      }
+    },
+    {
+      "@id": "_:ub77bL42C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:Action"
+      },
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub77bL62C14",
+      "sh:datatype": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:observable"
+      }
+    },
+    {
+      "@id": "_:ub77bL5C1",
+      "sh:property": {
+        "@id": "_:ub77bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub77bL47C1",
+      "sh:property": {
+        "@id": "_:ub77bL47C14"
+      }
+    },
+    {
+      "@id": "_:ub77bL24C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:minValue"
+      }
+    },
+    {
+      "@id": "_:ub77bL10C1",
+      "sh:property": {
+        "@id": "_:ub77bL10C15"
+      }
+    },
+    {
+      "@id": "iotsh:RampTimeDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub77bL19C1"
+          },
+          {
+            "@id": "_:ub77bL24C1"
+          },
+          {
+            "@id": "_:ub77bL29C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:RampTimeData"
+      }
+    },
+    {
+      "@id": "iotsh:RampUpShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub77bL38C1"
+          },
+          {
+            "@id": "_:ub77bL42C1"
+          },
+          {
+            "@id": "_:ub77bL47C1"
+          },
+          {
+            "@id": "_:ub77bL52C1"
+          },
+          {
+            "@id": "_:ub77bL57C1"
+          },
+          {
+            "@id": "_:ub77bL62C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:RampUp"
+      }
+    },
+    {
+      "@id": "_:ub77bL42C1",
+      "sh:property": {
+        "@id": "_:ub77bL42C15"
+      }
+    },
+    {
+      "@id": "_:ub77bL62C1",
+      "sh:property": {
+        "@id": "_:ub77bL62C14"
+      }
+    },
+    {
+      "@id": "_:ub77bL52C1",
+      "sh:property": {
+        "@id": "_:ub77bL52C14"
+      }
+    },
+    {
+      "@id": "_:ub77bL5C15",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub77bL57C14",
+      "sh:hasValue": {
+        "@id": "xsd:boolean"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub77bL47C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:RampData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "iotsh:RampDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub77bL5C1"
+          },
+          {
+            "@id": "_:ub77bL10C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:RampData"
+      }
+    },
+    {
+      "@id": "_:ub77bL29C16",
+      "sh:datatype": {
+        "@id": "xsd:integer"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:maxValue"
+      }
+    },
+    {
+      "@id": "_:ub77bL52C14",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:RampTimeData"
+      },
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub77bL19C1",
+      "sh:property": {
+        "@id": "_:ub77bL19C15"
+      }
+    },
+    {
+      "@id": "_:ub77bL29C1",
+      "sh:property": {
+        "@id": "_:ub77bL29C16"
+      }
+    },
+    {
+      "@id": "_:ub77bL38C15",
+      "sh:minCount": 1,
+      "sh:node": {
+        "@list": []
+      },
+      "sh:path": {
+        "@id": "iot:capability"
+      }
+    },
+    {
+      "@id": "_:ub77bL57C1",
+      "sh:property": {
+        "@id": "_:ub77bL57C14"
+      }
+    }
+  ]
+}

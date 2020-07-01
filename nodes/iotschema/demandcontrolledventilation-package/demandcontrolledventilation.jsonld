@@ -11,15 +11,126 @@
   },
   "@graph": [
     {
+      "@id": "_:ub71bL14C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:DemandControlledVentilationData"
+      },
+      "sh:path": {
+        "@id": "iot:providesOutputData"
+      }
+    },
+    {
+      "@id": "_:ub71bL9C1",
+      "sh:property": {
+        "@id": "_:ub71bL9C15"
+      }
+    },
+    {
+      "@id": "_:ub71bL37C1",
+      "sh:property": {
+        "@id": "_:ub71bL37C15"
+      }
+    },
+    {
+      "@id": "_:ub71bL28C1",
+      "sh:property": {
+        "@id": "_:ub71bL28C14"
+      }
+    },
+    {
+      "@id": "_:ub71bL24C10",
+      "sh:property": {
+        "@id": "_:ub71bL25C13"
+      }
+    },
+    {
+      "@id": "_:ub71bL19C1",
+      "sh:property": {
+        "@id": "_:ub71bL19C14"
+      }
+    },
+    {
+      "@id": "_:ub71bL19C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "iotsh:DemandControlledVentilationDataShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub71bL37C1"
+          },
+          {
+            "@id": "_:ub71bL42C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:DemandControlledVentilationData"
+      }
+    },
+    {
+      "@id": "_:ub71bL9C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:Property"
+      },
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "_:ub71bL5C1",
+      "sh:property": {
+        "@id": "_:ub71bL5C15"
+      }
+    },
+    {
+      "@id": "_:ub71bL42C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:GasInAirConcentrationUnit"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
+      }
+    },
+    {
       "@id": "iotsh:DemandControlledVentilationShape",
       "@type": "sh:NodeShape",
       "sh:and": {
         "@list": [
           {
-            "@id": "_:ub246bL5C1"
+            "@id": "_:ub71bL5C1"
           },
           {
-            "@id": "_:ub246bL10C1"
+            "@id": "_:ub71bL9C1"
+          },
+          {
+            "@id": "_:ub71bL14C1"
+          },
+          {
+            "@id": "_:ub71bL19C1"
+          },
+          {
+            "@id": "_:ub71bL24C1"
+          },
+          {
+            "@id": "_:ub71bL28C1"
           }
         ]
       },
@@ -28,16 +139,51 @@
       }
     },
     {
-      "@id": "_:ub246bL5C14",
-      "sh:hasValue": true,
-      "sh:maxCount": 1,
-      "sh:minCount": 1,
-      "sh:path": {
-        "@id": "iot:writable"
+      "@id": "_:ub71bL24C1",
+      "sh:not": {
+        "@id": "_:ub71bL24C10"
       }
     },
     {
-      "@id": "_:ub246bL10C14",
+      "@id": "_:ub71bL25C13",
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:acceptsInputData"
+      }
+    },
+    {
+      "@id": "_:ub71bL37C15",
+      "sh:datatype": {
+        "@id": "xsd:float"
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:propertyType"
+      }
+    },
+    {
+      "@id": "_:ub71bL5C15",
+      "sh:minCount": 1,
+      "sh:node": {
+        "@list": [
+          {
+            "@id": "iot:AmbientAir"
+          }
+        ]
+      },
+      "sh:path": {
+        "@id": "iot:capability"
+      }
+    },
+    {
+      "@id": "_:ub71bL42C1",
+      "sh:property": {
+        "@id": "_:ub71bL42C15"
+      }
+    },
+    {
+      "@id": "_:ub71bL28C14",
       "sh:datatype": {
         "@id": "xsd:boolean"
       },
@@ -48,15 +194,9 @@
       }
     },
     {
-      "@id": "_:ub246bL5C1",
+      "@id": "_:ub71bL14C1",
       "sh:property": {
-        "@id": "_:ub246bL5C14"
-      }
-    },
-    {
-      "@id": "_:ub246bL10C1",
-      "sh:property": {
-        "@id": "_:ub246bL10C14"
+        "@id": "_:ub71bL14C15"
       }
     }
   ]

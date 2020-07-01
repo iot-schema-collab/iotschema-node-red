@@ -1,0 +1,11 @@
+{
+    "name": "rampup-package",
+    "version": "1.0.0",
+    "description": "undefined",
+    "main": "rampup.js",
+    "node-red" : {
+        "nodes": {
+        "rampup": "rampup.js"
+        }
+    }
+}

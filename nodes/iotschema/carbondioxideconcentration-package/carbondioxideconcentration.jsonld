@@ -16,10 +16,10 @@
       "sh:and": {
         "@list": [
           {
-            "@id": "_:ub732bL5C1"
+            "@id": "_:ub69bL37C1"
           },
           {
-            "@id": "_:ub732bL10C1"
+            "@id": "_:ub69bL42C1"
           }
         ]
       },
@@ -28,40 +28,20 @@
       }
     },
     {
-      "@id": "_:ub732bL24C1",
+      "@id": "_:ub69bL28C1",
       "sh:property": {
-        "@id": "_:ub732bL24C14"
+        "@id": "_:ub69bL28C14"
       }
     },
     {
-      "@id": "_:ub732bL29C1",
-      "sh:not": {
-        "@id": "_:ub732bL29C10"
-      }
-    },
-    {
-      "@id": "_:ub732bL10C15",
-      "sh:in": {
-        "@list": [
-          {
-            "@id": "iot:PartsPerMillion"
-          },
-          {
-            "@id": "iot:PartsPerMillion"
-          },
-          {
-            "@id": "iot:Percent"
-          }
-        ]
-      },
-      "sh:maxCount": 1,
+      "@id": "_:ub69bL25C13",
       "sh:minCount": 1,
       "sh:path": {
-        "@id": "schema:unitCode"
+        "@id": "iot:acceptsInputData"
       }
     },
     {
-      "@id": "_:ub732bL5C15",
+      "@id": "_:ub69bL37C15",
       "sh:datatype": {
         "@id": "xsd:float"
       },
@@ -72,58 +52,7 @@
       }
     },
     {
-      "@id": "_:ub732bL33C1",
-      "sh:property": {
-        "@id": "_:ub732bL33C14"
-      }
-    },
-    {
-      "@id": "_:ub732bL30C13",
-      "sh:minCount": 1,
-      "sh:path": {
-        "@id": "iot:acceptsInputData"
-      }
-    },
-    {
-      "@id": "_:ub732bL24C14",
-      "sh:hasValue": false,
-      "sh:maxCount": 1,
-      "sh:minCount": 1,
-      "sh:path": {
-        "@id": "iot:writable"
-      }
-    },
-    {
-      "@id": "_:ub732bL10C1",
-      "sh:property": {
-        "@id": "_:ub732bL10C15"
-      }
-    },
-    {
-      "@id": "iotsh:CarbonDioxideConcentrationShape",
-      "@type": "sh:NodeShape",
-      "sh:and": {
-        "@list": [
-          {
-            "@id": "_:ub732bL19C1"
-          },
-          {
-            "@id": "_:ub732bL24C1"
-          },
-          {
-            "@id": "_:ub732bL29C1"
-          },
-          {
-            "@id": "_:ub732bL33C1"
-          }
-        ]
-      },
-      "sh:targetClass": {
-        "@id": "iot:CarbonDioxideConcentration"
-      }
-    },
-    {
-      "@id": "_:ub732bL19C15",
+      "@id": "_:ub69bL14C15",
       "sh:maxCount": 1,
       "sh:minCount": 1,
       "sh:node": {
@@ -134,7 +63,89 @@
       }
     },
     {
-      "@id": "_:ub732bL33C14",
+      "@id": "_:ub69bL19C1",
+      "sh:property": {
+        "@id": "_:ub69bL19C14"
+      }
+    },
+    {
+      "@id": "_:ub69bL42C1",
+      "sh:property": {
+        "@id": "_:ub69bL42C15"
+      }
+    },
+    {
+      "@id": "_:ub69bL24C10",
+      "sh:property": {
+        "@id": "_:ub69bL25C13"
+      }
+    },
+    {
+      "@id": "_:ub69bL9C1",
+      "sh:property": {
+        "@id": "_:ub69bL9C15"
+      }
+    },
+    {
+      "@id": "_:ub69bL5C15",
+      "sh:minCount": 1,
+      "sh:node": {
+        "@list": [
+          {
+            "@id": "iot:AmbientAir"
+          }
+        ]
+      },
+      "sh:path": {
+        "@id": "iot:capability"
+      }
+    },
+    {
+      "@id": "_:ub69bL5C1",
+      "sh:property": {
+        "@id": "_:ub69bL5C15"
+      }
+    },
+    {
+      "@id": "iotsh:CarbonDioxideConcentrationShape",
+      "@type": "sh:NodeShape",
+      "sh:and": {
+        "@list": [
+          {
+            "@id": "_:ub69bL5C1"
+          },
+          {
+            "@id": "_:ub69bL9C1"
+          },
+          {
+            "@id": "_:ub69bL14C1"
+          },
+          {
+            "@id": "_:ub69bL19C1"
+          },
+          {
+            "@id": "_:ub69bL24C1"
+          },
+          {
+            "@id": "_:ub69bL28C1"
+          }
+        ]
+      },
+      "sh:targetClass": {
+        "@id": "iot:CarbonDioxideConcentration"
+      }
+    },
+    {
+      "@id": "_:ub69bL19C14",
+      "sh:hasValue": false,
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "iot:writable"
+      }
+    },
+    {
+      "@id": "_:ub69bL28C14",
       "sh:datatype": {
         "@id": "xsd:boolean"
       },
@@ -145,21 +156,47 @@
       }
     },
     {
-      "@id": "_:ub732bL5C1",
+      "@id": "_:ub69bL37C1",
       "sh:property": {
-        "@id": "_:ub732bL5C15"
+        "@id": "_:ub69bL37C15"
       }
     },
     {
-      "@id": "_:ub732bL19C1",
-      "sh:property": {
-        "@id": "_:ub732bL19C15"
+      "@id": "_:ub69bL42C15",
+      "sh:in": {
+        "@list": [
+          {
+            "@id": "iot:GasInAirConcentrationUnit"
+          }
+        ]
+      },
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:path": {
+        "@id": "schema:unitCode"
       }
     },
     {
-      "@id": "_:ub732bL29C10",
+      "@id": "_:ub69bL14C1",
       "sh:property": {
-        "@id": "_:ub732bL30C13"
+        "@id": "_:ub69bL14C15"
+      }
+    },
+    {
+      "@id": "_:ub69bL24C1",
+      "sh:not": {
+        "@id": "_:ub69bL24C10"
+      }
+    },
+    {
+      "@id": "_:ub69bL9C15",
+      "sh:maxCount": 1,
+      "sh:minCount": 1,
+      "sh:node": {
+        "@id": "iot:Property"
+      },
+      "sh:path": {
+        "@id": "rdfs:subClassOf"
       }
     }
   ]
