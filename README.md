@@ -34,7 +34,7 @@ docker run --publish 1880:1880 --publish 8080:8080 --detach --name iotschema-nod
 
 ### Installing via npm to a preexisting Node-RED instance
 
-If you already have a runnong Node-RED instance (or if you do not wish to use Docker), The nodes can also be separately installed from npm.
+If you already have a running Node-RED instance (or if you do not wish to use Docker), The nodes can also be separately installed from npm.
 - To install all available iot.schema.org nodes, use
 ```
 npm install @iotschema/iotschema-capability
