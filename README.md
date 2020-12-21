@@ -4,6 +4,53 @@ iot.schema.org interactions implemented as Node-RED Nodes.
 ![iotschema-node-red: iot.schema.org interactions implemented as Node-RED Nodes.](https://github.com/iot-schema-collab/iotschema-node-red/blob/master/images/Temperature%20Control%20Recipe.PNG)
 
 ## Quick Start
+
+The Node-RED nodes can be installed in one of several ways:
+1. Installing via Docker (recommended)
+2. Building the Docker image manually and installing
+3. Installing via npm to a preexisting Node-RED instance
+4. Manual install (advanced)
+
+### Installing via Docker (recommended)
+The latest iot.schema.org Node-RED nodes as well as the associated Ubuntu Docker instance can be issued from the Docker hub with the following command:
+```
+docker pull iotschema/iotschema-node-red
+```
+
+### Building the Docker image manually and installing
+You can also elect to manually build the Docker image and install from there rather than using the Docker hub. To do this, follow the steps below: 
+
+1. Check out the current Github repo
+2. Navigate to <repo-root>/src/Docker
+3. Issue the `docker build` command with your desired arguments
+```
+docker build --tag iotschema-node-red:1.0 .
+```
+
+4. Run the image with your desired arguments
+```
+docker run --publish 1880:1880 --publish 8080:8080 --detach --name iotschema-node-red iotschema-node-red:1.0
+```
+
+### Installing via npm to a preexisting Node-RED instance
+
+If you already have a running Node-RED instance (or if you do not wish to use Docker), The nodes can also be separately installed from npm.
+- To install all available iot.schema.org nodes, use
+```
+npm install @iotschema/iotschema-capability
+```
+
+- The install the utility nodes for TD generation, TD configuration/persistence and match making, use 
+```
+npm install @iotschema/iotschema-utilitynodes
+```
+
+- Individual nodes can also be installed rather than installing the umbrella packages, for example:
+```
+npm install @iotschema/binaryswitch
+```
+
+### Manual install (advanced)
 1. Install Node-RED:
 ```
 sudo npm install -g --unsafe-perm node-red
